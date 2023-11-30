@@ -1,5 +1,7 @@
 
 function requestOrientationPermission(){
+    var orientationDisplay = document.getElementById('orientation-display');
+    orientationDisplay.innerHTML = `<p>Butten pressed</p>`,
     DeviceOrientationEvent.requestPermission()
     .then(response => {
         if (response == 'granted') {
