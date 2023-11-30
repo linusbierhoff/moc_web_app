@@ -1,0 +1,372 @@
+[
+    {
+        "question": "Welche Farbe hat die Null auf einer Roulettescheibe?",
+        "answers": [
+            "Grün",
+            "Rot",
+            "Schwarz",
+            "Blau"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Wie viele Kontinente gibt es auf der Erde?",
+        "answers": [
+            "Fünf",
+            "Sechs",
+            "Sieben",
+            "Acht"
+        ],
+        "right": 2
+    },
+    {
+        "question": "Was ist die Hauptstadt von Australien?",
+        "answers": [
+            "Sydney",
+            "Melbourne",
+            "Canberra",
+            "Perth"
+        ],
+        "right": 2
+    },
+    {
+        "question": "In welchem Jahr fiel die Berliner Mauer?",
+        "answers": [
+            "1985",
+            "1989",
+            "1991",
+            "1995"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Welches Element hat das chemische Symbol 'O'?",
+        "answers": [
+            "Sauerstoff",
+            "Wasserstoff",
+            "Eisen",
+            "Gold"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welches ist das größte Säugetier der Welt?",
+        "answers": [
+            "Elefant",
+            "Walhai",
+            "Giraffe",
+            "Blauwal"
+        ],
+        "right": 3
+    },
+    {
+        "question": "Wie viele Planeten gibt es in unserem Sonnensystem?",
+        "answers": [
+            "Acht",
+            "Neun",
+            "Zehn",
+            "Sieben"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Wer schrieb 'Faust'?",
+        "answers": [
+            "Johann Wolfgang von Goethe",
+            "Friedrich Schiller",
+            "Heinrich Heine",
+            "Thomas Mann"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Wie viele Beine hat eine Spinne?",
+        "answers": [
+            "Sechs",
+            "Acht",
+            "Zwölf",
+            "Zehn"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Was ist die Hauptstadt von Kanada?",
+        "answers": [
+            "Toronto",
+            "Montreal",
+            "Vancouver",
+            "Ottawa"
+        ],
+        "right": 3
+    },
+    {
+        "question": "Welches ist das längste Fluss in Deutschland?",
+        "answers": [
+            "Rhein",
+            "Elbe",
+            "Donau",
+            "Weser"
+        ],
+        "right": 2
+    },
+    {
+        "question": "Wie viele Jahre dauerte der Hundertjährige Krieg?",
+        "answers": [
+            "Hundert Jahre",
+            "Fünfzig Jahre",
+            "Dreißig Jahre",
+            "Achtzig Jahre"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welcher Planet wird auch der 'Rote Planet' genannt?",
+        "answers": [
+            "Mars",
+            "Venus",
+            "Jupiter",
+            "Saturn"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welcher deutsche Physiker formulierte die Relativitätstheorie?",
+        "answers": [
+            "Max Planck",
+            "Albert Einstein",
+            "Werner Heisenberg",
+            "Erwin Schrödinger"
+        ],
+        "right": 1
+    },
+    {
+        "question": "In welchem Jahr endete der Zweite Weltkrieg?",
+        "answers": [
+            "1943",
+            "1945",
+            "1948",
+            "1950"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Was ist die Hauptstadt von Japan?",
+        "answers": [
+            "Peking",
+            "Seoul",
+            "Hanoi",
+            "Tokio"
+        ],
+        "right": 3
+    },
+    {
+        "question": "Welches ist das kleinste Land der Welt?",
+        "answers": [
+            "Monaco",
+            "Vatikanstadt",
+            "San Marino",
+            "Nauru"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Wie viele Spieler hat eine Fußballmannschaft auf dem Feld?",
+        "answers": [
+            "9",
+            "10",
+            "11",
+            "12"
+        ],
+        "right": 2
+    },
+    {
+        "question": "Welches ist das meistgesprochene Sprache der Welt?",
+        "answers": [
+            "Englisch",
+            "Mandarin",
+            "Spanisch",
+            "Hindi"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Wer schrieb 'Die Odyssee'?",
+        "answers": [
+            "Homer",
+            "Herodot",
+            "Sophokles",
+            "Euripides"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welcher deutsche Komponist war ein Virtuose auf der Violine und wurde als Wunderkind bekannt?",
+        "answers": [
+            "Beethoven",
+            "Mozart",
+            "Bach",
+            "Brahms"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Was ist der höchste Berg der Welt?",
+        "answers": [
+            "Mount Everest",
+            "K2",
+            "Kangchenjunga",
+            "Lhotse"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welches ist das größte Ozean der Welt?",
+        "answers": [
+            "Atlantischer Ozean",
+            "Indischer Ozean",
+            "Arktischer Ozean",
+            "Pazifischer Ozean"
+        ],
+        "right": 3
+    },
+    {
+        "question": "Welche Partikel ist für das Übertragen von elektrischer Ladung verantwortlich?",
+        "answers": [
+            "Elektron",
+            "Proton",
+            "Neutron",
+            "Photon"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Wer war der erste Mensch im Weltraum?",
+        "answers": [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "Buzz Aldrin",
+            "John Glenn"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welches ist das längste Fluss der Welt?",
+        "answers": [
+            "Nil",
+            "Amazonas",
+            "Jangtse",
+            "Ganges"
+        ],
+        "right": 1
+    },
+    {
+        "question": "In welchem Jahr wurde die Europäische Union gegründet?",
+        "answers": [
+            "1957",
+            "1972",
+            "1993",
+            "2001"
+        ],
+        "right": 2
+    },
+    {
+        "question": "Was ist die Hauptstadt von Südafrika?",
+        "answers": [
+            "Kapstadt",
+            "Pretoria",
+            "Bloemfontein",
+            "Johannesburg"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Welches ist das größte Land der Welt?",
+        "answers": [
+            "Russland",
+            "Kanada",
+            "China",
+            "USA"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Wer schrieb 'Die Verwandlung'?",
+        "answers": [
+            "Thomas Mann",
+            "Franz Kafka",
+            "Hermann Hesse",
+            "Heinrich Böll"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Wie viele Zeitzonen gibt es auf der Welt?",
+        "answers": [
+            "12",
+            "18",
+            "24",
+            "36"
+        ],
+        "right": 2
+    },
+    {
+        "question": "Was ist der Unterschied zwischen Klima und Wetter?",
+        "answers": [
+            "Klima ist langfristig, Wetter ist kurzfristig",
+            "Wetter ist langfristig, Klima ist kurzfristig",
+            "Es gibt keinen Unterschied",
+            "Klima betrifft nur die Pole, Wetter betrifft den Äquator"
+        ],
+        "right": 0
+    },
+    {
+        "question": "Welcher Planet wird auch als 'Abendstern' bezeichnet?",
+        "answers": [
+            "Merkur",
+            "Venus",
+            "Mars",
+            "Jupiter"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Was ist der kleinste Knochen im menschlichen Körper?",
+        "answers": [
+            "Fingergelenk",
+            "Stapes (Steigbügel)",
+            "Zahn",
+            "Nasenbein"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Wer malte die Mona Lisa?",
+        "answers": [
+            "Vincent van Gogh",
+            "Leonardo da Vinci",
+            "Pablo Picasso",
+            "Michelangelo"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Welche zwei Elemente macht Wasser aus?",
+        "answers": [
+            "Sauerstoff und Stickstoff",
+            "Wasserstoff und Sauerstoff",
+            "Kohlenstoff und Wasserstoff",
+            "Stickstoff und Kohlenstoff"
+        ],
+        "right": 1
+    },
+    {
+        "question": "Welches ist das kleinste Säugetier der Welt?",
+        "answers": [
+            "Eichhörnchen",
+            "Fledermaus",
+            "Maus",
+            "Stacheligel"
+        ],
+        "right": 1
+    }
+]
