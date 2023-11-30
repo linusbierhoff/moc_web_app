@@ -4,7 +4,7 @@ let initGamma = null;
 
 let enabled = false;
 
-const angle = 40;
+const angle = 30;
 
 
 document.getElementById('permission-button').addEventListener('click', onButton)
