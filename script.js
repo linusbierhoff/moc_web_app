@@ -1,10 +1,10 @@
-var initAlpha = null
-var initBeta = null
-var initGamma = null
+let initAlpha = null;
+let initBeta = null;
+let initGamma = null;
 
-var enabled = false
+let enabled = false;
 
-var angle = 40;
+const angle = 40;
 
 
 document.getElementById('permission-button').addEventListener('click', onButton)
@@ -23,7 +23,7 @@ function onButton() {
 function requestOrientationPermission() {
     DeviceOrientationEvent.requestPermission()
         .then(response => {
-            if (response == 'granted') {
+            if (response === 'granted') {
                 window.addEventListener('deviceorientation', handleOrientation)
             }
         })
@@ -32,20 +32,16 @@ function requestOrientationPermission() {
 
 
 function resetOrientation() {
-    var alpha = DeviceOrientationEvent.alpha;
-    var beta = DeviceOrientationEvent.beta;
-    var gamma = DeviceOrientationEvent.gamma;
-
-    initAlpha = alpha;
-    initBeta = beta;
-    initGamma = gamma;
+    initAlpha = DeviceOrientationEvent.arguments.alpha;
+    initBeta = DeviceOrientationEvent.arguments.beta;
+    initGamma = DeviceOrientationEvent.arguments.gamma;
 }
 
 
 function handleOrientation(event) {
-    var alpha = event.alpha;
-    var beta = event.beta;
-    var gamma = event.gamma;
+    let alpha = event.alpha;
+    let beta = event.beta;
+    let gamma = event.gamma;
 
     initAlpha ??= alpha;
     initBeta ??= beta;
@@ -61,7 +57,7 @@ function handleOrientation(event) {
 
 
 function updateOrientationDisplay(alpha, beta, gamma) {
-    var orientationDisplay = document.getElementById('orientation-display');
+    const orientationDisplay = document.getElementById('orientation-display');
     orientationDisplay.innerHTML = `
         <p>Alpha (Z-axis): ${alpha.toFixed(2)} degrees</p>
         <p>Beta (X-axis): ${beta.toFixed(2)} degrees</p>
@@ -71,10 +67,10 @@ function updateOrientationDisplay(alpha, beta, gamma) {
 
 
 function updatePhoneSide(alpha, beta, gamma) {
-    var sideDisplay = document.getElementById('side-display');
+    const sideDisplay = document.getElementById('side-display');
 
-    var absGamma = abs.gamma
-    var absBeta = abs.beta
+    const absBeta = Math.abs(beta);
+    const absGamma = Math.abs(gamma);
 
     if (absBeta > absGamma && absBeta > angle) {
         if (beta < -angle) sideDisplay.innerHTML = `<h4>Up</h4>`;
