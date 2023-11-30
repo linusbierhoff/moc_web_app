@@ -1,10 +1,13 @@
-if (window.DeviceMotionEvent) {
-    window.addEventListener('deviceorientation', handleOrientation);
-} else {
-    var orientationDisplay = document.getElementById('orientation-display');
-    orientationDisplay.innerHTML = `<p>Device orientation not supported</p>`;
-}
 
+function requestOrientationPermission(){
+    DeviceOrientationEvent.requestPermission()
+    .then(response => {
+        if (response == 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation)
+        }
+    })
+    .catch(console.error)
+}
 
 function handleOrientation(event) {
     var alpha = event.alpha;
