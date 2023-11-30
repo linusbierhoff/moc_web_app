@@ -74,14 +74,14 @@ function updatePhoneSide(alpha, beta, gamma) {
     var absGamma = abs.gamma
     var absBeta = abs.beta
 
-    if(absBeta > absGamma && absBeta > angle){
-        if(beta < -angle) sideDisplay.innerHTML = `<h4>Up</h4>`;
-        if(beta > angle) sideDisplay.innerHTML = `<h4>Down</h4>`;
+    if (absBeta > absGamma && absBeta > angle) {
+        if (beta < -angle) sideDisplay.innerHTML = `<h4>Up</h4>`;
+        if (beta > angle) sideDisplay.innerHTML = `<h4>Down</h4>`;
         return;
-    } 
-    if (absGamma > absBeta && absGamma > angle){
-        if(gamma < -angle) sideDisplay.innerHTML = `<h4>Left</h4>;`
-        if(gamma > angle) sideDisplay.innerHTML = `<h4>Right</h4>`;
+    }
+    if (absGamma > absBeta && absGamma > angle) {
+        if (gamma < -angle) sideDisplay.innerHTML = `<h4>Left</h4>;`
+        if (gamma > angle) sideDisplay.innerHTML = `<h4>Right</h4>`;
         return;
     }
     sideDisplay.innerHTML = ``;
