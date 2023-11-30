@@ -69,5 +69,5 @@ function updatePhoneSide(alpha, beta, gamma) {
     if (beta < -30) sideDisplay.innerHTML = `<h2>Oben</h2>`
     if (beta > 30) sideDisplay.innerHTML = `<h2>Unten</h2>`
     if (gamma < -30) sideDisplay.innerHTML = `<h2>Links</h2>`
-    if (hamma > 30) sideDisplay.innerHTML = `<h2>Rechts</h2>`
+    if (gamma > 30) sideDisplay.innerHTML = `<h2>Rechts</h2>`
 }
