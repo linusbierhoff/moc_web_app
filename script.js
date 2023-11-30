@@ -1,7 +1,12 @@
+var initAlpha = null
+var initBeta = null
+var initGamma = null
+
+
 
 function requestOrientationPermission(){
     var orientationDisplay = document.getElementById('orientation-display');
-    orientationDisplay.innerHTML = `<p>Butten pressed</p>`,
+    orientationDisplay.innerHTML = `<p>Button pressed</p>`,
     DeviceOrientationEvent.requestPermission()
     .then(response => {
         if (response == 'granted') {
@@ -15,7 +20,11 @@ function handleOrientation(event) {
     var alpha = event.alpha;
     var beta = event.beta;  
     var gamma = event.gamma; 
-    updateOrientationDisplay(alpha, beta, gamma);
+
+    initAlpha ??= alpha;
+    initBeta ??= beta;
+    initGamma ??= gamma;
+    updateOrientationDisplay(alpha - initAlpha, beta - initBeta, gamma - initGamma);
 }
 
 function updateOrientationDisplay(alpha, beta, gamma) {
@@ -25,4 +34,9 @@ function updateOrientationDisplay(alpha, beta, gamma) {
         <p>Beta (X-axis): ${beta.toFixed(2)} degrees</p>
         <p>Gamma (Y-axis): ${gamma.toFixed(2)} degrees</p>
     `;
+}
+
+
+function getPhoneSide(alpha, beta, gamma) {
+    var orientationDisplay = document.getElementById('orientation-display');
 }
