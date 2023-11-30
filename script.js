@@ -32,9 +32,7 @@ function requestOrientationPermission() {
 
 
 function resetOrientation() {
-    initAlpha = DeviceOrientationEvent.arguments.alpha;
-    initBeta = DeviceOrientationEvent.arguments.beta;
-    initGamma = DeviceOrientationEvent.arguments.gamma;
+    initAlpha = initBeta = initGamma = null;
 }
 
 
@@ -78,7 +76,7 @@ function updatePhoneSide(alpha, beta, gamma) {
         return;
     }
     if (absGamma > absBeta && absGamma > angle) {
-        if (gamma < -angle) sideDisplay.innerHTML = `<h4>Left</h4>;`
+        if (gamma < -angle) sideDisplay.innerHTML = `<h4>Left</h4>`;
         if (gamma > angle) sideDisplay.innerHTML = `<h4>Right</h4>`;
         return;
     }
