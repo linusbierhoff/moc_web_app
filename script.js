@@ -4,48 +4,55 @@ var initGamma = null
 
 var enabled = false
 
-function onButton(){
-    if(enabled) {
+
+function onButton() {
+    if (enabled) {
         resetOrientation();
-    } else{
+    } else {
         requestOrientationPermission();
+        enabled = true
     }
 }
 
 
-function requestOrientationPermission(){
-    var orientationDisplay = document.getElementById('orientation-display');
-    orientationDisplay.innerHTML = `<p>Button pressed</p>`,
+function requestOrientationPermission() {
     DeviceOrientationEvent.requestPermission()
-    .then(response => {
-        if (response == 'granted') {
-            window.addEventListener('deviceorientation', handleOrientation)
-        }
-    })
-    .catch(console.error)
+        .then(response => {
+            if (response == 'granted') {
+                window.addEventListener('deviceorientation', handleOrientation)
+            }
+        })
+        .catch(console.error)
 }
 
-function handleOrientation(event) {
-    var alpha = event.alpha;
-    var beta = event.beta;  
-    var gamma = event.gamma; 
-
-    initAlpha ??= alpha;
-    initBeta ??= beta;
-    initGamma ??= gamma;
-    getPhoneSide(alpha- initAlpha, beta - initBeta, gamma - initGamma)
-    updateOrientationDisplay(alpha - initAlpha, beta - initBeta, gamma - initGamma);
-}
 
 function resetOrientation() {
     var alpha = DeviceOrientationEvent.alpha;
-    var beta = DeviceOrientationEvent.beta;  
-    var gamma = DeviceOrientationEvent.gamma; 
+    var beta = DeviceOrientationEvent.beta;
+    var gamma = DeviceOrientationEvent.gamma;
 
     initAlpha = alpha;
     initBeta = beta;
     initGamma = gamma;
 }
+
+
+function handleOrientation(event) {
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
+
+    initAlpha ??= alpha;
+    initBeta ??= beta;
+    initGamma ??= gamma;
+
+    alpha = alpha - initAlpha
+    beta = beta - initBeta
+    gamma = gamma - initGamma
+    updatePhoneSide(alpha, beta, gamma)
+    updateOrientationDisplay(alpha, beta, gamma);
+}
+
 
 function updateOrientationDisplay(alpha, beta, gamma) {
     var orientationDisplay = document.getElementById('orientation-display');
@@ -57,11 +64,10 @@ function updateOrientationDisplay(alpha, beta, gamma) {
 }
 
 
-function getPhoneSide(alpha, beta, gamma) {
-    var orientationDisplay = document.getElementById('side-display');
-    if(beta < -30) orientationDisplay.innerHTML = `<h2>Oben</h2>`
-    if(beta > 30) orientationDisplay.innerHTML = `<h2>Unten</h2>`
-
-    if(gamma < -30) orientationDisplay.innerHTML = `<h2>Links</h2>`
-    if(hamma > 30) orientationDisplay.innerHTML = `<h2>Rechts</h2>`
+function updatePhoneSide(alpha, beta, gamma) {
+    var sideDisplay = document.getElementById('side-display');
+    if (beta < -30) sideDisplay.innerHTML = `<h2>Oben</h2>`
+    if (beta > 30) sideDisplay.innerHTML = `<h2>Unten</h2>`
+    if (gamma < -30) sideDisplay.innerHTML = `<h2>Links</h2>`
+    if (hamma > 30) sideDisplay.innerHTML = `<h2>Rechts</h2>`
 }
