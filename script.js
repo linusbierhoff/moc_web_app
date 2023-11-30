@@ -1,7 +1,3 @@
-var orientationDisplay = document.getElementById('orientation-display');
-orientationDisplay.innerHTML = `<p>Loading...</p>`;
-
-
 if (window.DeviceMotionEvent) {
     window.addEventListener('deviceorientation', handleOrientation);
 } else {
