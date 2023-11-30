@@ -6,11 +6,11 @@ var enabled = false
 
 
 function onButton() {
-    if (enabled) {
-        resetOrientation();
-    } else {
+    if (!enabled) {
         requestOrientationPermission();
         enabled = true
+    } else {
+        resetOrientation();
     }
 }
 
@@ -49,6 +49,7 @@ function handleOrientation(event) {
     alpha = alpha - initAlpha
     beta = beta - initBeta
     gamma = gamma - initGamma
+
     updatePhoneSide(alpha, beta, gamma)
     updateOrientationDisplay(alpha, beta, gamma);
 }
