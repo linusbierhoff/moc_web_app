@@ -6,7 +6,8 @@ var enabled = false
 
 var angle = 40;
 
-document.getElementsById('permission-button').addEventListener('click', onButton)
+
+document.getElementById('permission-button').addEventListener('click', onButton)
 
 
 function onButton() {
