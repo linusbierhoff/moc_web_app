@@ -35,29 +35,24 @@ function updatePhoneSide(alpha, beta, gamma) {
 
     if (absBeta > absGamma && absBeta > angle) {
         if (beta < -angle) {
-            debug.innerText = "top";
             highlightAnswer("top");
         }
         if (beta > angle) {
-            debug.innerText = "bottom";
             highlightAnswer("bottom");
         }
         return;
     }
     if (absGamma > absBeta && absGamma > angle) {
         if (gamma < -angle) {
-            debug.innerText = "left";
 
             highlightAnswer("left");
         }
         if (gamma > angle) {
-            debug.innerText = "right";
             highlightAnswer("right");
         }
         return;
     }
     highlightAnswer("")
-    debug.innerText = "";
 }
 
 function highlightAnswer(elementClass) {

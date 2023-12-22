@@ -57,7 +57,7 @@ body {
 }
 
 .answer.top.selected {
-    border-top: 40vw solid black;
+    border-top: 40vw solid rgba(0, 0, 0, 0.6);
 }
 
 .answer.right {
@@ -70,7 +70,7 @@ body {
 }
 
 .answer.right.selected {
-    border-right: 40vw solid black;
+    border-right: 40vw solid rgba(0, 0, 0, 0.6);
 }
 
 .answer.bottom {
@@ -83,7 +83,7 @@ body {
 }
 
 .answer.bottom.selected {
-    border-bottom: 40vw solid black;
+    border-bottom: 40vw solid rgba(0, 0, 0, 0.6);
 }
 
 .answer.left {
@@ -96,5 +96,5 @@ body {
 
 
 .answer.left.selected {
-    border-left: 40vw solid black;
+    border-left: 40vw solid rgba(0, 0, 0, 0.6);
 }
