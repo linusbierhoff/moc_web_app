@@ -2,8 +2,6 @@ let initAlpha = null;
 let initBeta = null;
 let initGamma = null;
 
-let enabled = false;
-
 const angle = 30;
 
 window.addEventListener('deviceorientation', handleOrientation)
@@ -30,8 +28,6 @@ function handleOrientation(event) {
 }
 
 function updatePhoneSide(alpha, beta, gamma) {
-    const sideDisplay = document.getElementById('side-display');
-
     const absBeta = Math.abs(beta);
     const absGamma = Math.abs(gamma);
 
@@ -57,13 +53,13 @@ function showAnswerById(id) {
     }
 
     if (id === 1 || id === 4) {
-        answerBox.style.height = '40vh';
+        answerBox.style.height = `40vh`;
     }
 
     if (id === 2 || id === 3) {
-        answerBox.style.width = '40vw'
+        answerBox.style.width = `40vw`;
     }
-    answerBox.innerHTML = "Hier steht eine antwort"
+    answerBox.innerHTML = `Hier steht eine antwort`;
 
 }
 
@@ -71,11 +67,11 @@ function hideAnswerByID(id) {
     const answerBox = document.getElementById(`answer-${id}`)
 
     if (id === 1 || id === 4) {
-        answerBox.style.height = '12vh';
+        answerBox.style.height = `12vh`;
     }
 
     if (id === 2 || id === 3) {
-        answerBox.style.width = '20vw'
+        answerBox.style.width = `20vw`;
     }
     answerBox.innerHTML = ""
 }
