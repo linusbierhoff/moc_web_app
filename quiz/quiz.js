@@ -6,6 +6,7 @@ const angle = 30;
 
 window.addEventListener('deviceorientation', handleOrientation)
 
+
 function resetOrientation() {
     initAlpha = initBeta = initGamma = null;
 }
@@ -56,21 +57,31 @@ function updatePhoneSide(alpha, beta, gamma) {
         return;
     }
     highlightAnswer("")
+    debug.innerText = "";
 }
 
 function highlightAnswer(elementClass) {
-    hideAnswer("up");
-    hideAnswer("down");
+    hideAnswer("top");
+    hideAnswer("bottom");
     hideAnswer("left");
     hideAnswer("right");
 
     if (elementClass === "") return;
 
-    const element = document.getElementsByClassName(elementClass);
-    element.item(0).innerHTML = `<div class="answer ${element} selected"></div>`;
+    const elements = document.getElementsByClassName(elementClass);
+    if (elements.length <= 0) {
+        console.log("cannot found element");
+        return;
+    }
+    console.log(elements[0].className)
+    elements[0].className = "answer " + elementClass + " selected";
 }
 
-function hideAnswer(element) {
-    const answerBox = document.getElementsByClassName(element)
-    answerBox.innerText = `<div class="answer ${element}"></div>`;
+function hideAnswer(elementClass) {
+    const elements = document.getElementsByClassName(elementClass)
+    if (elements.length <= 0) {
+        console.log("cannot found element");
+        return;
+    }
+    elements[0].className = "answer " + elementClass;
 }
