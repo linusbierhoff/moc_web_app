@@ -27,6 +27,7 @@ body {
     font-weight: bold;
     align-self: center;
     text-align: center;
+    margin: 10px;
 }
 
 #answer-options {
