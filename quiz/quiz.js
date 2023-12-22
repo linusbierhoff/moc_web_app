@@ -6,6 +6,30 @@ const angle = 30;
 
 window.addEventListener('deviceorientation', handleOrientation)
 
+const request = new XMLHttpRequest();
+request.open("GET", "questions.json", false);
+request.send(null)
+
+const answer_question = JSON.parse(request.responseText);
+let right_answer = null;
+
+setQuestion();
+
+function setQuestion() {
+    const max = answer_question.length;
+    const index = Math.floor( Math.random() * max);
+
+    const object = answer_question[index];
+    console.log(object)
+
+    document.getElementById("question").innerText = object['question'];
+    for (let i = 0; i < 4; i++) {
+        document.getElementById(i.toString()).innerText = object['answers'][i];
+    }
+    right_answer = object['right']
+    answer_question.splice(index, 1);
+}
+
 
 function resetOrientation() {
     initAlpha = initBeta = initGamma = null;
@@ -80,3 +104,4 @@ function hideAnswer(elementClass) {
     }
     elements[0].className = "answer " + elementClass;
 }
+

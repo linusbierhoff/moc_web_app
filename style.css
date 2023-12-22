@@ -4,7 +4,7 @@ h1, h2, button {
 }
 
 body {
-    background: linear-gradient(rgba(0, 232, 255, 0.3), rgba(0,255,152,0.47));
+    background: linear-gradient(rgba(0, 232, 255, 0.8), rgba(0, 255, 152, 0.8));
     display: flex;
     justify-content: center;
     align-content: center;

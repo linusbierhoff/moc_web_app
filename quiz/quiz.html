@@ -2,28 +2,37 @@
 <!DOCTYPE html>
 <header>
     <link rel="stylesheet" href="quiz.css">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
-    <meta name="viewport" content="height=device-height; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 </header>
 <body>
-<div id="question">Hier steht eine Frage</div>
-<div id="answer-options">
-    <ol>
-        <li>Lorem Ipsum</li>
-        <li>Lorem Ipsum</li>
-        <li>Lorem Ipsum</li>
-        <li>Lorem Ipsum</li>
-    </ol>
+<div id="question"></div>
+
+<ol id="options">
+    <li class="option" id="0"></li>
+    <li class="option" id="1"></li>
+    <li class="option" id="2"></li>
+    <li class="option" id="3"></li>
+</ol>
+
+
+
+<div id="answers">
+    <div id="selectors">
+        <div class="answer top"></div>
+        <div class="answer left"></div>
+        <div class="answer right"></div>
+        <div class="answer bottom"></div>
+    </div>
+    <div id="labels">
+        <h3>1</h3>
+        <div class="single-row">
+            <h3>2</h3>
+            <h3>3</h3>
+        </div>
+        <h3>4</h3>
+    </div>
 </div>
-<div id="answer-selectors">
-    <div class="answer top">
-    </div>
-    <div class="answer left">
-    </div>
-    <div class="answer right">
-    </div>
-    <div class="answer bottom">
-    </div>
-</div>
+
 <script src="quiz.js"></script>
 </body>
