@@ -4,7 +4,7 @@ h1, h2, button {
 }
 
 body {
-    background: rgba(0, 232, 255, 0.3);
+    background: linear-gradient(rgba(0, 232, 255, 0.3), rgba(0,255,152,0.47));
     display: flex;
     justify-content: center;
     align-content: center;
@@ -17,6 +17,7 @@ button {
     font-size: 32px;
     text-align: center;
     text-decoration: none;
+    color: #000;
     border-radius: 20px;
     background-color: aliceblue;
     border: none;

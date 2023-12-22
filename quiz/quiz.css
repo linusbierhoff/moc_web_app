@@ -1,51 +1,100 @@
-h1, h2, button {
+h1, h2, p, li, #question, .answer-selector-label {
     font-family: 'Courier New', Courier, monospace;
     align-self: center;
 }
 
-.question{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 2em;
-    font-weight: bold;
-    align-self: center;
+ol {
+    list-style-type: lower-alpha;
+}
+
+html {
+    max-height: 100vh;
 }
 
 body {
-    background: rgba(0, 232, 255, 0.3);
+    background: linear-gradient(rgba(0, 232, 255, 0.3), rgba(0, 255, 152, 0.47));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 }
 
-.row {
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
+#question {
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    text-align: center;
 }
 
+#answer-options {
+    align-self: center;
+    text-align: center;
+}
 
-#multirow {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-between;
+#answer-selectors {
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+    margin: 5vw 5vw 5vw 5vw;
 }
 
 .answer {
-    border-radius: 20px;
-    background: white;
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
 }
 
 
-
-#answer-1, #answer-4{
-    height: 12vh;
-    width: 70vw;
+.answer.top {
+    margin-left: 2.5vw;
+    border-top: 40vw solid rgba(0, 0, 0, 0.2);
+    border-right: 40vw solid transparent;
+    border-bottom: 40vw solid transparent;
+    border-left: 40vw solid transparent;
 }
 
-#answer-2, #answer-3 {
-    height: 40vh;
-    width: 20vw;
+.answer.top.selected {
+    border-top: 40vw solid black;
 }
 
+.answer.right {
+    margin-left: 5vw;
+    margin-top: 2.5vw;
+    border-top: 40vw solid transparent;
+    border-right: 40vw solid rgba(0, 0, 0, 0.2);
+    border-bottom: 40vw solid transparent;
+    border-left: 40vw solid transparent;
+}
+
+.answer.right.selected {
+    border-right: 40vw solid black;
+}
+
+.answer.bottom {
+    margin-left: 2.5vw;
+    margin-top: 5vw;
+    border-top: 40vw solid transparent;
+    border-right: 40vw solid transparent;
+    border-bottom: 40vw solid rgba(0, 0, 0, 0.2);
+    border-left: 40vw solid transparent;
+}
+
+.answer.bottom.selected {
+    border-bottom: 40vw solid black;
+}
+
+.answer.left {
+    margin-top: 2.5vw;
+    border-top: 40vw solid transparent;
+    border-right: 40vw solid transparent;
+    border-bottom: 40vw solid transparent;
+    border-left: 40vw solid rgba(0, 0, 0, 0.2);
+}
+
+
+.answer.left.selected {
+    border-left: 40vw solid black;
+}

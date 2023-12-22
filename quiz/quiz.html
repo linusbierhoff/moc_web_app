@@ -2,26 +2,29 @@
 <!DOCTYPE html>
 <header>
     <link rel="stylesheet" href="quiz.css">
-    <meta name="viewport" content="width=device-witdh, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
 </header>
 <body>
-<div class="row">
-    <div class="question">Hier steht eine Frage</div>
+<div id="question">Hier steht eine Frage</div>
+<div id="answer-options">
+    <ol>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+    </ol>
 </div>
-<div class="row">
-    <div id="answer-1" class="answer"></div>
+<div id="debug"></div>
+<div id="answer-selectors">
+    <div class="answer top">
+    </div>
+    <div class="answer left">
+    </div>
+    <div class="answer right">
+    </div>
+    <div class="answer bottom">
+    </div>
 </div>
-
-<div class="row" id="multirow">
-    <div id="answer-2" class="answer"></div>
-    <div id="answer-3" class="answer"></div>
-</div>
-<div class="row">
-    <div class="hint"></div>
-</div>
-<div class="row">
-    <div id="answer-4" class="answer"></div>
-</div>
-
 <script src="quiz.js"></script>
 </body>

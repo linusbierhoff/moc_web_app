@@ -28,50 +28,49 @@ function handleOrientation(event) {
 }
 
 function updatePhoneSide(alpha, beta, gamma) {
+    const debug = document.getElementById(`debug`)
     const absBeta = Math.abs(beta);
     const absGamma = Math.abs(gamma);
 
     if (absBeta > absGamma && absBeta > angle) {
-        if (beta < -angle) showAnswerById(1);
-        if (beta > angle) showAnswerById(4);
+        if (beta < -angle) {
+            debug.innerText = "top";
+            highlightAnswer("top");
+        }
+        if (beta > angle) {
+            debug.innerText = "bottom";
+            highlightAnswer("bottom");
+        }
         return;
     }
     if (absGamma > absBeta && absGamma > angle) {
-        if (gamma < -angle) showAnswerById(2);
-        if (gamma > angle) showAnswerById(3);
+        if (gamma < -angle) {
+            debug.innerText = "left";
+
+            highlightAnswer("left");
+        }
+        if (gamma > angle) {
+            debug.innerText = "right";
+            highlightAnswer("right");
+        }
         return;
     }
-
-    showAnswerById(0)
+    highlightAnswer("")
 }
 
-function showAnswerById(id) {
-    const answerBox = document.getElementById(`answer-${id}`)
+function highlightAnswer(elementClass) {
+    hideAnswer("up");
+    hideAnswer("down");
+    hideAnswer("left");
+    hideAnswer("right");
 
-    for (let i = 0; i < 4; i++) {
-        if (i !== id) hideAnswerByID(i);
-    }
+    if (elementClass === "") return;
 
-    if (id === 1 || id === 4) {
-        answerBox.style.height = `40vh`;
-    }
-
-    if (id === 2 || id === 3) {
-        answerBox.style.width = `40vw`;
-    }
-    answerBox.innerHTML = `Hier steht eine antwort`;
-
+    const element = document.getElementsByClassName(elementClass);
+    element.item(0).innerHTML = `<div class="answer ${element} selected"></div>`;
 }
 
-function hideAnswerByID(id) {
-    const answerBox = document.getElementById(`answer-${id}`)
-
-    if (id === 1 || id === 4) {
-        answerBox.style.height = `12vh`;
-    }
-
-    if (id === 2 || id === 3) {
-        answerBox.style.width = `20vw`;
-    }
-    answerBox.innerHTML = ""
+function hideAnswer(element) {
+    const answerBox = document.getElementsByClassName(element)
+    answerBox.innerText = `<div class="answer ${element}"></div>`;
 }
