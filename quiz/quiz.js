@@ -51,11 +51,31 @@ function updatePhoneSide(alpha, beta, gamma) {
 
 function showAnswerById(id) {
     const answerBox = document.getElementById(`answer-${id}`)
+
+    for (let i = 0; i < 4; i++) {
+        if (i !== id) hideAnswerByID(i);
+    }
+
     if (id === 1 || id === 4) {
-        answerBox.innerHeight(40)
+        answerBox.style.height = '40vh';
     }
 
     if (id === 2 || id === 3) {
-        answerBox.innerWidth(40)
+        answerBox.style.width = '40vw'
     }
+    answerBox.innerHTML = "Hier steht eine antwort"
+
+}
+
+function hideAnswerByID(id) {
+    const answerBox = document.getElementById(`answer-${id}`)
+
+    if (id === 1 || id === 4) {
+        answerBox.style.height = '12vh';
+    }
+
+    if (id === 2 || id === 3) {
+        answerBox.style.width = '12vw'
+    }
+    answerBox.innerHTML = ""
 }
