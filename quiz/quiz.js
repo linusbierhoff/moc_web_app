@@ -75,7 +75,7 @@ function hideAnswerByID(id) {
     }
 
     if (id === 2 || id === 3) {
-        answerBox.style.width = '12vw'
+        answerBox.style.width = '20vw'
     }
     answerBox.innerHTML = ""
 }
