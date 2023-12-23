@@ -34,11 +34,11 @@ function onTouch() {
         if (selectedID === right_answer) {
             count += 1;
             overlay.style.background = "green";
-            overlay.innerHTML = `</h3>Richtig!<h3>`
+            overlay.innerHTML = `<h3>Right!</h3>`
 
         } else {
             overlay.style.background = "red";
-            overlay.innerHTML = `</h3>Falsch!<br><br>${answer_question['answers'][right_answer]}<h3>`
+            overlay.innerHTML = `<h3>Falsch!<br><br>${answer_question[right_answer]['answers']}</h3>`
 
         }
         setTimeout(function () {
