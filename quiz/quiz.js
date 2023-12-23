@@ -15,6 +15,7 @@ let done = false;
 let count = 0;
 let highlighted = null;
 let timeoutId;
+let inRange = true;
 
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
@@ -88,6 +89,14 @@ function updatePhoneSide(alpha, beta, gamma) {
     } else {
         highlightAnswer("")
     }
+
+    if (absBeta < 5 && absGamma < 5 && !inRange) {
+        Haptics.vibrate(200);
+        inRange = true;
+    } else {
+        inRange = false;
+    }
+
 }
 
 function highlightAnswer(className) {
