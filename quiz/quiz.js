@@ -3,25 +3,28 @@ let initBeta = null;
 let initGamma = null;
 
 let selectedID = null;
+let count = 0;
 
 const angle = 30;
 
+//Start
 window.addEventListener('deviceorientation', handleOrientation);
-document.getElementsByName("body")[0].addEventListener("touchend", onTouch)
+document.getElementById("display").addEventListener("touchend", onTouch)
 
 const request = new XMLHttpRequest();
 request.open("GET", "questions.json", false);
 request.send(null)
-
-const answer_question = JSON.parse(request.responseText);
+let answer_question = JSON.parse(request.responseText);
 let right_answer = null;
 
-setQuestion();
+setQuestion(); //Init function
 
-
+//Function
 function onTouch() {
+    console.log("Touch")
     if (selectedID === right_answer) {
         console.log("Right")
+        count += 1;
     }
     if (selectedID != null) {
         setQuestion();
