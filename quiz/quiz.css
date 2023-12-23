@@ -131,3 +131,9 @@ li{
 .answer.left.selected {
     border-left: 40vw solid rgba(256, 256, 256, 1);
 }
+
+#feedback-overlay{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+}

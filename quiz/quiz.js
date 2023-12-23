@@ -28,13 +28,18 @@ setQuestion(); //Init function
 
 //Function
 function onTouch() {
-    console.log("Touch")
-    if (selectedID === right_answer) {
-        console.log("Right")
-        count += 1;
-    }
     if (selectedID != null) {
-        setQuestion();
+        hideAll();
+        if (selectedID === right_answer) {
+            count += 1;
+            document.getElementById("feedback-overlay").style.color = "green";
+        } else {
+            document.getElementById("feedback-overlay").style.color = "red";
+        }
+        setTimeout(function () {
+            document.getElementById("feedback-overlay").style.color = "transparent";
+            setQuestion();
+        }, 1000);
     }
 }
 
