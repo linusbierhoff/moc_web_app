@@ -13,6 +13,7 @@ const classNames = [
     "right",
     "bottom"
 ]
+s
 
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
@@ -29,14 +30,20 @@ setQuestion(); //Init function
 //Function
 function onTouch() {
     if (selectedID != null) {
+        const overlay = document.getElementById("feedback-overlay");
         if (selectedID === right_answer) {
             count += 1;
-            document.getElementById("feedback-overlay").style.background = "green";
+            overlay.style.background = "green";
+            overlay.innerHTML = `</h3>Richtig!<h3>`
+
         } else {
-            document.getElementById("feedback-overlay").style.background = "red";
+            overlay.style.background = "red";
+            overlay.innerHTML = `</h3>Falsch!<br><br>${answer_question['answers'][right_answer]}<h3>`
+
         }
         setTimeout(function () {
-            document.getElementById("feedback-overlay").style.background = "transparent";
+            overlay.style.background = "transparent";
+            overlay.innerHTML = ``;
             setQuestion();
         }, 1000);
     }
