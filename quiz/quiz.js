@@ -95,32 +95,11 @@ function updatePhoneSide(alpha, beta, gamma) {
 function highlightAnswer(elementClass) {
     hideAll();
     if (elementClass === "") return;
-    const elements = document.getElementsByClassName(elementClass);
-    if (elements.length <= 0) {
-        console.log("cannot found element");
-        return;
-    }
+    const htmlElement = document.getElementsByClassName(elementClass)[0];
 
-    console.log(elements[0].className)
-    elements[0].className = "answer " + elementClass + " selected";
+    htmlElement.className = "answer " + elementClass + " selected";
 
-    switch (elementClass) {
-        case "top":
-            selectedID = 0;
-            break;
-        case "left":
-            selectedID = 1;
-            break;
-        case "right":
-            selectedID = 2;
-            break;
-        case "bottom":
-            selectedID = 3;
-            break;
-        default:
-            selectedID = null;
-            break;
-    }
+    selectedID = elements.indexOf(elementClass);
 }
 
 
