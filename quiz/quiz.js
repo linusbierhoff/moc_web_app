@@ -5,6 +5,7 @@ const classNames = [
     "right",
     "bottom"
 ]
+const overlay = document.getElementById("overlay");
 
 
 let initAlpha = null;
@@ -17,8 +18,8 @@ let highlighted = null;
 let timeoutId;
 
 //Start
-window.addEventListener('deviceorientation', handleOrientation);
 document.getElementById('reset-button').addEventListener('click', resetOrientation)
+window.addEventListener('deviceorientation', handleOrientation);
 
 const request = new XMLHttpRequest();
 request.open("GET", "questions.json", false);
@@ -32,8 +33,9 @@ function setQuestion() {
     const max = questions.length;
 
     if (max === 0) {
-        document.getElementById("feedback-overlay").style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
-        document.getElementById("feedback-overlay").innerHTML = `<h3>${count} correct answers!</h3>`
+        const feedback_overlay = activateFullscreenOverlay("result");
+        feedback_overlay.style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
+        feedback_overlay.innerHTML = `<h3>${count} correct answers!</h3>`
         done = true;
         return;
     }
@@ -50,6 +52,7 @@ function setQuestion() {
 
 
 function resetOrientation() {
+    console.log("Clicked Reset")
     initAlpha = initBeta = initGamma = null;
     hideAll();
     highlighted = null;
@@ -76,6 +79,8 @@ function updatePhoneSide(alpha, beta, gamma) {
     const absBeta = Math.abs(beta);
     const absGamma = Math.abs(gamma);
 
+    console.log(`absBeta: ${absBeta}; absGamma ${absGamma}`)
+
     if (absBeta > absGamma && absBeta > angle) {
         if (beta < -angle) highlightAnswer("top");
         if (beta > angle) highlightAnswer("bottom");
@@ -91,9 +96,9 @@ function updatePhoneSide(alpha, beta, gamma) {
     const centered_circle = document.getElementById("centered-circle")
 
     if (absBeta < 5 && absGamma < 5) {
-        centered_circle.style.color = `rgba(256, 256, 256, 1)`
+        centered_circle.style.color = `rgba(256, 256, 256, 1)`;
     } else {
-        centered_circle.style.color = `rgba(256, 256, 256, 0.4)`
+        centered_circle.style.color = `rgba(256, 256, 256, 0.4)`;
     }
 
 }
@@ -120,24 +125,32 @@ function checkAnswer() {
     const selectedID = classNames.indexOf(highlighted);
     const right_answer = current_question['right'];
     const overlay = document.getElementById("feedback-overlay");
+    const feedback = activateFullscreenOverlay("feedback")
 
     if (selectedID === right_answer) {
         count += 1;
-        overlay.style.background = "green";
-        overlay.innerHTML = `<h3>Right!</h3>`
-
+        feedback.style.background = "green";
+        feedback.innerHTML = `<h3>Right!</h3>`
     } else {
-        overlay.style.background = "red";
-        overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
-
+        feedback.style.background = "red";
+        feedback.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
     }
     setTimeout(function () {
-        overlay.style.background = "transparent";
-        overlay.innerHTML = ``;
+        clearOverlay();
         setQuestion();
         hideAll();
         highlighted = null;
     }, 1000);
+}
+
+
+function activateFullscreenOverlay(id) {
+    overlay.innerHTML = `<div class="fullscreen-overlay" id=${id}></div>`
+    return document.getElementById(id);
+}
+
+function clearOverlay() {
+    overlay.innerHTML = ``;
 }
 
 
