@@ -97,7 +97,7 @@ function highlightAnswer(className) {
     if (className === "") return;
     const htmlElements = document.getElementsByClassName(className);
 
-    if (htmlElements.length === 0) {
+    if (htmlElements.length !== 0) {
         htmlElements[0].className = "answer " + className + " selected";
         selectedID = classNames.indexOf(className);
     } else console.log(className);
@@ -106,10 +106,13 @@ function highlightAnswer(className) {
 
 function hideAll() {
     selectedID = null;
-    for (let className in classNames) {
+
+    for (let index in classNames) {
+
+        let className = classNames[index];
         let htmlElements = document.getElementsByClassName(className);
 
-        if (htmlElements.length === 0) htmlElements[0].className = "answer " + className;
+        if (htmlElements.length !== 0) htmlElements[0].className = "answer " + className;
         else console.log(className);
 
     }
