@@ -1,14 +1,4 @@
-let initAlpha = null;
-let initBeta = null;
-let initGamma = null;
-
-let selectedID = null;
-let count = 0;
-
-let done = false;
-
 const angle = 30;
-
 const classNames = [
     "top",
     "left",
@@ -17,46 +7,27 @@ const classNames = [
 ]
 
 
+let initAlpha = null;
+let initBeta = null;
+let initGamma = null;
+let current_question = null;
+let done = false;
+let count = 0;
+
+
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
-
 document.getElementById('reset-button').addEventListener('click', resetOrientation)
-document.getElementById("display").addEventListener("touchend", onTouch)
 
 const request = new XMLHttpRequest();
 request.open("GET", "questions.json", false);
 request.send(null)
 const questions = JSON.parse(request.responseText);
 
-let current_question = null;
 
-
-setQuestion(); //Init function
+setQuestion(); //Init first question
 
 //Function
-function onTouch() {
-    if (done) return;
-    if (selectedID != null) {
-        const right_answer = current_question['right'];
-        const overlay = document.getElementById("feedback-overlay");
-        if (selectedID === right_answer) {
-            count += 1;
-            overlay.style.background = "green";
-            overlay.innerHTML = `<h3>Right!</h3>`
-
-        } else {
-            overlay.style.background = "red";
-            overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
-
-        }
-        setTimeout(function () {
-            overlay.style.background = "transparent";
-            overlay.innerHTML = ``;
-            setQuestion();
-        }, 1000);
-    }
-}
-
 function setQuestion() {
     const max = questions.length;
 
@@ -123,14 +94,36 @@ function highlightAnswer(className) {
 
     if (htmlElements.length !== 0) {
         htmlElements[0].className = "answer " + className + " selected";
-        selectedID = classNames.indexOf(className);
+        checkAnswer(classNames.indexOf(className));
     } else console.log(className);
+
+}
+
+function checkAnswer(selectedID) {
+    if (done) return;
+    if (selectedID != null) {
+        const right_answer = current_question['right'];
+        const overlay = document.getElementById("feedback-overlay");
+        if (selectedID === right_answer) {
+            count += 1;
+            overlay.style.background = "green";
+            overlay.innerHTML = `<h3>Right!</h3>`
+
+        } else {
+            overlay.style.background = "red";
+            overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
+
+        }
+        setTimeout(function () {
+            overlay.style.background = "transparent";
+            overlay.innerHTML = ``;
+            setQuestion();
+        }, 1000);
+    }
 }
 
 
 function hideAll() {
-    selectedID = null;
-
     for (let index in classNames) {
 
         let className = classNames[index];

@@ -2,19 +2,21 @@ h1, h2, h3, h4, ul, ol, p button {
     font-family: 'Arial', serif;
 }
 
-h1, h2{
+h1, h2, h3{
     align-self: center;
+    text-align: center;
 }
 
 
 body {
     background: linear-gradient(rgba(0, 232, 255, 0.8), rgba(0, 255, 152, 0.8));
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: center;
     flex-direction: column;
-    min-height: 100vh;
-    padding: 5vh 5vw;
+    height: 100vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .rounded-button {
@@ -29,7 +31,12 @@ body {
     outline: none;
 }
 
+#welcome{
+    padding-top: 10vh;
+}
+
 #start{
     display: flex;
     flex-direction: column;
+    padding-bottom: 10vh;
 }
