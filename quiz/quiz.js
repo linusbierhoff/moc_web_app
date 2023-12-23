@@ -24,8 +24,9 @@ document.getElementById("display").addEventListener("touchend", onTouch)
 const request = new XMLHttpRequest();
 request.open("GET", "questions.json", false);
 request.send(null)
-let answer_question = JSON.parse(request.responseText);
-let current_index = null;
+const questions = JSON.parse(request.responseText);
+
+let current_question = null;
 
 
 setQuestion(); //Init function
@@ -34,7 +35,7 @@ setQuestion(); //Init function
 function onTouch() {
     if (done) return;
     if (selectedID != null) {
-        const right_answer = answer_question[current_index]['right_answer'];
+        const right_answer = current_question['right'];
         const overlay = document.getElementById("feedback-overlay");
         if (selectedID === right_answer) {
             count += 1;
@@ -43,7 +44,7 @@ function onTouch() {
 
         } else {
             overlay.style.background = "red";
-            overlay.innerHTML = `<h3>Falsch!<br><br>${answer_question[current_index]['answers'][right_answer]}</h3>`
+            overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
 
         }
         setTimeout(function () {
@@ -55,23 +56,23 @@ function onTouch() {
 }
 
 function setQuestion() {
-    const max = answer_question.length;
+    const max = questions.length;
+
     if (max === 0) {
         document.getElementById("feedback-overlay").style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
         document.getElementById("feedback-overlay").innerHTML = `<h3>${count} correct answers!</h3>`
         done = true;
         return;
     }
-    const index = Math.floor(Math.random() * max);
-    current_index = index;
-    const object = answer_question[index];
-    console.log(object)
 
-    document.getElementById("question").innerText = object['question'];
+    const index = Math.floor(Math.random() * max);
+    current_question = questions[index];
+
+    document.getElementById("question").innerText = current_question['question'];
     for (let i = 0; i < 4; i++) {
-        document.getElementById(i.toString()).innerText = object['answers'][i];
+        document.getElementById(i.toString()).innerText = current_question['answers'][i];
     }
-    answer_question.splice(index, 1);
+    questions.splice(index, 1);
 }
 
 
