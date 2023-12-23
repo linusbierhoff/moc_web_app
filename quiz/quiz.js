@@ -51,6 +51,10 @@ function onTouch() {
 
 function setQuestion() {
     const max = answer_question.length;
+    if(max === 0) {
+        document.getElementById("feedback-overlay").style.background = `linear-gradient(rgba(0, 232, 255, 0.8), rgba(0, 255, 152, 0.8))`;
+        document.getElementById("feedback-overlay").innerHTML = `<h3>${right_answer} correct answers!<br><br>${answer_question[right_answer]['answers']}</h3>`
+    }
     const index = Math.floor(Math.random() * max);
 
     const object = answer_question[index];
