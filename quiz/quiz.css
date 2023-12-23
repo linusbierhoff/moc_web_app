@@ -156,3 +156,21 @@ li {
     justify-content: center;
     align-content: center;
 }
+
+#centered-indicator{
+    position: absolute;
+    width: 90vw;
+    height: 90vw;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#centered-circle{
+    background: rgba(256, 256, 256, 0.4);
+    border-radius: 20px;
+    height: 5vw;
+    width: 5vw;
+}

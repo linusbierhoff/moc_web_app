@@ -15,7 +15,6 @@ let done = false;
 let count = 0;
 let highlighted = null;
 let timeoutId;
-let inRange = true;
 
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
@@ -25,7 +24,6 @@ const request = new XMLHttpRequest();
 request.open("GET", "questions.json", false);
 request.send(null)
 const questions = JSON.parse(request.responseText);
-
 
 setQuestion(); //Init first question
 
@@ -90,11 +88,12 @@ function updatePhoneSide(alpha, beta, gamma) {
         highlightAnswer("")
     }
 
-    if (absBeta < 5 && absGamma < 5 && !inRange) {
-        Haptics.vibrate(200);
-        inRange = true;
+    const centered_circle = document.getElementById("centered-circle")
+
+    if (absBeta < 5 && absGamma < 5) {
+        centered_circle.style.color = `rgba(256, 256, 256, 1)`
     } else {
-        inRange = false;
+        centered_circle.style.color = `rgba(256, 256, 256, 0.4)`
     }
 
 }
