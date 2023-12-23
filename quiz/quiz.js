@@ -13,7 +13,7 @@ const classNames = [
     "right",
     "bottom"
 ]
-s
+
 
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
