@@ -7,7 +7,7 @@ let count = 0;
 
 const angle = 30;
 
-const elements = [
+const classNames = [
     "top",
     "left",
     "right",
@@ -92,21 +92,26 @@ function updatePhoneSide(alpha, beta, gamma) {
     }
 }
 
-function highlightAnswer(elementClass) {
+function highlightAnswer(className) {
     hideAll();
-    if (elementClass === "") return;
-    const htmlElement = document.getElementsByClassName(elementClass)[0];
+    if (className === "") return;
+    const htmlElements = document.getElementsByClassName(className);
 
-    htmlElement.className = "answer " + elementClass + " selected";
-
-    selectedID = elements.indexOf(elementClass);
+    if (htmlElements != null) {
+        htmlElements[0].className = "answer " + className + " selected";
+        selectedID = classNames.indexOf(className);
+    } else console.log(className);
 }
 
 
 function hideAll() {
     selectedID = null;
-    for (let element in elements) {
-        document.getElementsByClassName(element)[0].className = "answer " + element;
+    for (let className in classNames) {
+        let htmlElements = document.getElementsByClassName(className);
+
+        if (htmlElements != null) htmlElements[0].className = "answer " + className;
+        else console.log(className);
+
     }
 }
 
