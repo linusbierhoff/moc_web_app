@@ -1,22 +1,22 @@
 [
-    {
-        "question": "Welche Farbe hat die Null auf einer Roulettescheibe?",
-        "answers": [
-            "Grün",
-            "Rot",
-            "Schwarz",
-            "Blau"
-        ],
-        "right": 0
-    },
-    {
-        "question": "Wie viele Kontinente gibt es auf der Erde?",
-        "answers": [
-            "Fünf",
-            "Sechs",
-            "Sieben",
-            "Acht"
-        ],
-        "right": 2
-    }
+  {
+    "question": "Welche Farbe hat die Null auf einer Roulettescheibe?",
+    "answers": [
+      "Grün",
+      "Rot",
+      "Schwarz",
+      "Blau"
+    ],
+    "right": 0
+  },
+  {
+    "question": "Wie viele Kontinente gibt es auf der Erde?",
+    "answers": [
+      "Fünf",
+      "Sechs",
+      "Sieben",
+      "Acht"
+    ],
+    "right": 2
+  }
 ]

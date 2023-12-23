@@ -25,14 +25,16 @@ const request = new XMLHttpRequest();
 request.open("GET", "questions.json", false);
 request.send(null)
 let answer_question = JSON.parse(request.responseText);
-let right_answer = null;
+let current_index = null;
+
 
 setQuestion(); //Init function
 
 //Function
 function onTouch() {
-    if(done) return;
+    if (done) return;
     if (selectedID != null) {
+        const right_answer = answer_question[current_index]['right_answer'];
         const overlay = document.getElementById("feedback-overlay");
         if (selectedID === right_answer) {
             count += 1;
@@ -41,7 +43,7 @@ function onTouch() {
 
         } else {
             overlay.style.background = "red";
-            overlay.innerHTML = `<h3>Falsch!<br><br>${answer_question[right_answer]['answers']}</h3>`
+            overlay.innerHTML = `<h3>Falsch!<br><br>${answer_question[current_index]['answers'][right_answer]}</h3>`
 
         }
         setTimeout(function () {
@@ -54,14 +56,14 @@ function onTouch() {
 
 function setQuestion() {
     const max = answer_question.length;
-    if(max === 0) {
+    if (max === 0) {
         document.getElementById("feedback-overlay").style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
-        document.getElementById("feedback-overlay").innerHTML = `<h3>${right_answer} correct answers!<br><br>${answer_question[right_answer]['answers']}</h3>`
+        document.getElementById("feedback-overlay").innerHTML = `<h3>${count} correct answers!</h3>`
         done = true;
         return;
     }
     const index = Math.floor(Math.random() * max);
-
+    current_index = index;
     const object = answer_question[index];
     console.log(object)
 
@@ -69,7 +71,6 @@ function setQuestion() {
     for (let i = 0; i < 4; i++) {
         document.getElementById(i.toString()).innerText = object['answers'][i];
     }
-    right_answer = object['right']
     answer_question.splice(index, 1);
 }
 

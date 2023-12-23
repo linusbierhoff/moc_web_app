@@ -4,7 +4,7 @@ h1, h2, h3, p, li, #question, .answer-selector-label {
 }
 
 
-h3{
+h3 {
     font-size: 2em;
     font-weight: bold;
     color: black
@@ -41,7 +41,7 @@ body {
     flex-direction: column;
 }
 
-li{
+li {
     font-size: 1.2em;
     color: black;
 }
@@ -61,7 +61,7 @@ li{
 }
 
 
-.single-row{
+.single-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -132,7 +132,7 @@ li{
     border-left: 40vw solid rgba(256, 256, 256, 1);
 }
 
-#feedback-overlay{
+#feedback-overlay {
     height: 100vh;
     width: 100vw;
     position: absolute;
