@@ -29,7 +29,6 @@ setQuestion(); //Init function
 //Function
 function onTouch() {
     if (selectedID != null) {
-        hideAll();
         if (selectedID === right_answer) {
             count += 1;
             document.getElementById("feedback-overlay").style.color = "green";
