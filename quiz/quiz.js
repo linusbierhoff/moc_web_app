@@ -7,6 +7,13 @@ let count = 0;
 
 const angle = 30;
 
+const elements = [
+    "top",
+    "left",
+    "right",
+    "bottom"
+]
+
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
 document.getElementById("display").addEventListener("touchend", onTouch)
@@ -69,30 +76,20 @@ function handleOrientation(event) {
 }
 
 function updatePhoneSide(alpha, beta, gamma) {
-    const debug = document.getElementById(`debug`)
     const absBeta = Math.abs(beta);
     const absGamma = Math.abs(gamma);
 
     if (absBeta > absGamma && absBeta > angle) {
-        if (beta < -angle) {
-            highlightAnswer("top");
-        }
-        if (beta > angle) {
-            highlightAnswer("bottom");
-        }
-        return;
-    }
-    if (absGamma > absBeta && absGamma > angle) {
-        if (gamma < -angle) {
+        if (beta < -angle) highlightAnswer("top");
+        if (beta > angle) highlightAnswer("bottom");
 
-            highlightAnswer("left");
-        }
-        if (gamma > angle) {
-            highlightAnswer("right");
-        }
-        return;
+    } else if (absGamma > absBeta && absGamma > angle) {
+        if (gamma < -angle) highlightAnswer("left");
+        if (gamma > angle) highlightAnswer("right");
+
+    } else {
+        highlightAnswer("")
     }
-    highlightAnswer("")
 }
 
 function highlightAnswer(elementClass) {
@@ -103,6 +100,9 @@ function highlightAnswer(elementClass) {
         console.log("cannot found element");
         return;
     }
+
+    console.log(elements[0].className)
+    elements[0].className = "answer " + elementClass + " selected";
 
     switch (elementClass) {
         case "top":
@@ -121,22 +121,13 @@ function highlightAnswer(elementClass) {
             selectedID = null;
             break;
     }
-
-    console.log(elements[0].className)
-    elements[0].className = "answer " + elementClass + " selected";
 }
 
 
 function hideAll() {
     selectedID = null;
-    const elements = [
-        "top",
-        "left",
-        "right",
-        "bottom"
-    ]
     for (const element in elements) {
-        document.getElementsByClassName(elementClass)[0].className = "answer " + element;
+        document.getElementsByClassName(element)[0].className = "answer " + element;
     }
 }
 
