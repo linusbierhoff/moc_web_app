@@ -31,12 +31,12 @@ function onTouch() {
     if (selectedID != null) {
         if (selectedID === right_answer) {
             count += 1;
-            document.getElementById("feedback-overlay").style.color = "green";
+            document.getElementById("feedback-overlay").style.background = "green";
         } else {
-            document.getElementById("feedback-overlay").style.color = "red";
+            document.getElementById("feedback-overlay").style.background = "red";
         }
         setTimeout(function () {
-            document.getElementById("feedback-overlay").style.color = "transparent";
+            document.getElementById("feedback-overlay").style.background = "transparent";
             setQuestion();
         }, 1000);
     }
