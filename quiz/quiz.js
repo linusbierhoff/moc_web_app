@@ -19,6 +19,8 @@ const classNames = [
 
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
+
+document.getElementById('reset-button').addEventListener('click', resetOrientation)
 document.getElementById("display").addEventListener("touchend", onTouch)
 
 const request = new XMLHttpRequest();

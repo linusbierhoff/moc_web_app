@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<header>
+<head>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-</header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="height=device-height, initial-scale=1.0"/>
+    <title>Tilt Quiz</title>
+</head>
 <body>
-<h1 class="title">
-    Tilt Quiz
-</h1>
-<h2 class="subtitle">
-    Press start to begin!
-</h2>
-<button id="start-button">Start</button>
+<h1>Welcome to Tilt Quiz</h1>
+
+
+<div id="introduction">
+    <h3>Tilt to Answer:</h3>
+
+    <ul>
+        <li>Read the questions carefully, each with four answer options.</li>
+        <li>Tilt your device in the direction of your chosen answer (Up, Left, Right, or Down.</li>
+    </ul>
+
+    <h3>Tap to Confirm:</h3>
+
+    <ul>
+        <li>Once you've tilted to your desired answer, tap the screen to lock in your response.</li>
+    </ul>
+</div>
+<div id="start">
+    <h2>Press start to begin!</h2>
+    <button id="start-button" class="rounded-button">Start</button>
+</div>
 <script src="script.js"></script>
 
 </body>

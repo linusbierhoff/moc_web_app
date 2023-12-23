@@ -1,8 +1,7 @@
 h1, h2, h3, p, li, #question, .answer-selector-label {
-    font-family: 'Arial Black', Courier, monospace;
+    font-family: 'Arial', serif;
     align-self: center;
 }
-
 
 h3 {
     font-size: 2em;
@@ -19,7 +18,23 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    padding: 0;
+
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 1vh 1vh;
+}
+
+.text-button{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 #question {
