@@ -105,7 +105,7 @@ function highlightAnswer(elementClass) {
 
 function hideAll() {
     selectedID = null;
-    for (const element in elements) {
+    for (let element in elements) {
         document.getElementsByClassName(element)[0].className = "answer " + element;
     }
 }
