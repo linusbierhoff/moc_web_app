@@ -13,7 +13,8 @@ let initGamma = null;
 let current_question = null;
 let done = false;
 let count = 0;
-
+let highlighted = null;
+let timeoutId;
 
 //Start
 window.addEventListener('deviceorientation', handleOrientation);
@@ -88,38 +89,45 @@ function updatePhoneSide(alpha, beta, gamma) {
 }
 
 function highlightAnswer(className) {
-    hideAll();
-    if (className === "") return;
-    const htmlElements = document.getElementsByClassName(className);
-
-    if (htmlElements.length !== 0) {
-        htmlElements[0].className = "answer " + className + " selected";
-        checkAnswer(classNames.indexOf(className));
-    } else console.log(className);
-
+    if (highlighted !== className && !done) {
+        hideAll();
+        clearTimeout(timeoutId);
+        if (className === "") return;
+        const htmlElements = document.getElementsByClassName(className);
+        if (htmlElements.length !== 0) {
+            htmlElements[0].className = "answer " + className + " selected";
+            highlighted = className;
+            timeoutId = setTimeout(() => {
+                checkAnswer();
+            }, 1500)
+        } else console.log(className);
+    }
 }
 
-function checkAnswer(selectedID) {
+
+function checkAnswer() {
     if (done) return;
-    if (selectedID != null) {
-        const right_answer = current_question['right'];
-        const overlay = document.getElementById("feedback-overlay");
-        if (selectedID === right_answer) {
-            count += 1;
-            overlay.style.background = "green";
-            overlay.innerHTML = `<h3>Right!</h3>`
+    const selectedID = classNames.indexOf(highlighted);
+    const right_answer = current_question['right'];
+    const overlay = document.getElementById("feedback-overlay");
 
-        } else {
-            overlay.style.background = "red";
-            overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
+    if (selectedID === right_answer) {
+        count += 1;
+        overlay.style.background = "green";
+        overlay.innerHTML = `<h3>Right!</h3>`
 
-        }
-        setTimeout(function () {
-            overlay.style.background = "transparent";
-            overlay.innerHTML = ``;
-            setQuestion();
-        }, 1000);
+    } else {
+        overlay.style.background = "red";
+        overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
+
     }
+    setTimeout(function () {
+        overlay.style.background = "transparent";
+        overlay.innerHTML = ``;
+        setQuestion();
+        hideAll();
+        highlighted = null;
+    }, 1000);
 }
 
 
