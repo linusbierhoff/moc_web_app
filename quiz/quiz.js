@@ -52,6 +52,8 @@ function setQuestion() {
 
 function resetOrientation() {
     initAlpha = initBeta = initGamma = null;
+    hideAll();
+    highlighted = null;
 }
 
 
@@ -106,7 +108,7 @@ function highlightAnswer(className) {
 
 
 function checkAnswer() {
-    if (done) return;
+    if (done || highlighted === null) return;
     const selectedID = classNames.indexOf(highlighted);
     const right_answer = current_question['right'];
     const overlay = document.getElementById("feedback-overlay");
