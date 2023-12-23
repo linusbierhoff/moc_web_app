@@ -5,6 +5,8 @@ let initGamma = null;
 let selectedID = null;
 let count = 0;
 
+let done = false;
+
 const angle = 30;
 
 const classNames = [
@@ -29,6 +31,7 @@ setQuestion(); //Init function
 
 //Function
 function onTouch() {
+    if(done) return;
     if (selectedID != null) {
         const overlay = document.getElementById("feedback-overlay");
         if (selectedID === right_answer) {
@@ -54,6 +57,8 @@ function setQuestion() {
     if(max === 0) {
         document.getElementById("feedback-overlay").style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
         document.getElementById("feedback-overlay").innerHTML = `<h3>${right_answer} correct answers!<br><br>${answer_question[right_answer]['answers']}</h3>`
+        done = true;
+        return;
     }
     const index = Math.floor(Math.random() * max);
 
