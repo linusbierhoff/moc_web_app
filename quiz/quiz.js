@@ -146,6 +146,8 @@ function activateFullscreenOverlay() {
 
 function clearOverlay() {
     overlay.className = null;
+    overlay.style.color = `transparent`;
+    overlay.innerHTML = ``;
 }
 
 
