@@ -135,7 +135,6 @@ function checkAnswer() {
         clearOverlay();
         setQuestion();
         hideAll();
-        highlighted = null;
     }, 1000);
 }
 
@@ -152,6 +151,7 @@ function clearOverlay() {
 
 
 function hideAll() {
+    highlighted = null;
     for (let index in classNames) {
 
         let className = classNames[index];
