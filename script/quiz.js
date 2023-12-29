@@ -21,14 +21,21 @@ let timeoutId;
 document.getElementById('reset-button').addEventListener('click', resetOrientation)
 window.addEventListener('deviceorientation', handleOrientation);
 
-const request = new XMLHttpRequest();
-request.open("GET", "questions.json", false);
-request.send(null)
-const questions = JSON.parse(request.responseText);
+const questions = loadQuestions();
+setQuestion();
 
-setQuestion(); //Init first question
 
-//Function
+
+//Functions
+
+function loadQuestions() {
+    const request = new XMLHttpRequest();
+    request.open("GET", "questions.json", false);
+    request.send(null)
+    return JSON.parse(request.responseText);
+}
+
+
 function setQuestion() {
     const max = questions.length;
 
