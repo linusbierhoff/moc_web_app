@@ -2,8 +2,7 @@ let done = false;
 let highlighted = null;
 let timeoutId;
 
-
-if (typeof Modernizr !== 'undefined' && Modernizr.deviceorientation) {
+if (Modernizr.devicemotiondeviceorientation) {
     document.getElementById('start-button').addEventListener('click', onStart)
 
 } else {
