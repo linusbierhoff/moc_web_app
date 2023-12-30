@@ -24,7 +24,7 @@ body {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: space-between;
     padding: 1vh 1vh;
 }
 
@@ -37,6 +37,12 @@ header {
     border: none;
     outline: none;
 }
+
+
+#stopwatch{
+    font-size: 1.1em;
+}
+
 
 #question {
     font-size: 1.5em;

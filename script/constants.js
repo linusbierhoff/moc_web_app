@@ -8,3 +8,6 @@ const classNames = [
 
 const overlay = document.getElementById("overlay");
 const centered_circle = document.getElementById("centered-circle")
+const stopwatch_text = document.getElementById("stopwatch");
+
+const stopWatch = new Stopwatch();

@@ -7,8 +7,14 @@ activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
 fetch("https://opentdb.com/api.php?amount=10&type=multiple").then((response) =>
     response.json().then((result) => {
         questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']))
-        setQuestion()
-        deactivateFullscreenOverlay()
+        setQuestion();
+        deactivateFullscreenOverlay();
+
+        stopWatch.start((seconds) => {
+            stopwatch_text.innerText = seconds + " seconds";
+        })
+
+
     })
 )
 
@@ -16,8 +22,9 @@ function setQuestion() {
     const length = questions.length;
 
     if (length === 0) {
-        activateFullscreenOverlay(`<h3>${count} correct answers!</h3>`);
         done = true;
+        stopWatch.stop();
+        activateFullscreenOverlay(`<h3>You have got ${correct_answers} right in ${stopWatch.seconds} seconds! </h3>`);
         return;
     }
 
