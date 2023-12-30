@@ -21,14 +21,14 @@ body {
 
 }
 
-header{
+header {
     display: flex;
     flex-direction: row;
     justify-content: end;
     padding: 1vh 1vh;
 }
 
-.text-button{
+.text-button {
     font-size: 1.1em;
     text-align: center;
     text-decoration: none;
@@ -157,7 +157,7 @@ li {
     align-content: center;
 }
 
-#centered-indicator{
+#centered-indicator {
     position: absolute;
     width: 90vw;
     height: 90vw;
@@ -168,7 +168,7 @@ li {
     align-items: center;
 }
 
-#centered-circle{
+#centered-circle {
     background: rgba(256, 256, 256, 0.4);
     border-radius: 20px;
     height: 5vw;

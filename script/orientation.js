@@ -4,17 +4,11 @@ let initGamma = null;
 
 let done = false;
 let highlighted = null;
-let timeoutId;
+let timeoutId = null;
 
 window.addEventListener('deviceorientation', handleOrientation)
 
 document.getElementById('reset-button').addEventListener('click', resetOrientation)
-
-function resetOrientation() {
-    initAlpha = initBeta = initGamma = null;
-    hideAllAnswers();
-    highlighted = null;
-}
 
 
 function handleOrientation(event) {
@@ -54,5 +48,11 @@ function updatePhoneSide(alpha, beta, gamma) {
     } else {
         centered_circle.style.background = `rgba(256, 256, 256, 0.4)`;
     }
+}
 
+
+function resetOrientation() {
+    initAlpha = initBeta = initGamma = null;
+    hideAllAnswers();
+    highlighted = null;
 }

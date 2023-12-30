@@ -1,22 +1,22 @@
 let current_question = null;
 let correct_answers = 0;
 let questions;
+
+activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
+
 fetch("https://opentdb.com/api.php?amount=10&type=multiple").then((response) =>
     response.json().then((result) => {
         questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']))
         setQuestion()
+        deactivateFullscreenOverlay()
     })
 )
 
-
 function setQuestion() {
-    if (questions === null) return;
     const length = questions.length;
 
     if (length === 0) {
-        activateFullscreenOverlay();
-        overlay.style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
-        overlay.innerHTML = `<h3>${count} correct answers!</h3>`
+        activateFullscreenOverlay(`<h3>${count} correct answers!</h3>`);
         done = true;
         return;
     }
@@ -35,16 +35,16 @@ function checkAnswer() {
     if (done || highlighted === null) return;
     const selectedID = classNames.indexOf(highlighted);
     const right_answer = current_question.correct_answer;
-    activateFullscreenOverlay()
 
     if (selectedID === right_answer) {
         correct_answers += 1;
+        activateFullscreenOverlay(`<h3>Right!</h3>`)
         overlay.style.background = "green";
-        overlay.innerHTML = `<h3>Right!</h3>`
     } else {
+        activateFullscreenOverlay(`<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`)
         overlay.style.background = "red";
-        overlay.innerHTML = `<h3>Falsch!<br><br>${current_question['answers'][right_answer]}</h3>`
     }
+
     setTimeout(function () {
         deactivateFullscreenOverlay();
         setQuestion();
@@ -83,8 +83,10 @@ function hideAllAnswers() {
 }
 
 
-function activateFullscreenOverlay() {
+function activateFullscreenOverlay(innerHTML) {
     overlay.className = "fullscreen-overlay"
+    overlay.style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
+    overlay.innerHTML = innerHTML
 }
 
 function deactivateFullscreenOverlay() {
@@ -92,6 +94,3 @@ function deactivateFullscreenOverlay() {
     overlay.style.color = `transparent`;
     overlay.innerHTML = ``;
 }
-
-
-

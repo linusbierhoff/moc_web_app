@@ -2,18 +2,18 @@ h1, h2, h3, h4, ul, ol, p button {
     font-family: 'Arial', serif;
 }
 
-h1, h2, h3{
+h1, h2, h3 {
     align-self: center;
     text-align: center;
 }
 
-h1{
+h1 {
     margin-top: 10vh;
 }
 
 
 body {
-    background: linear-gradient(rgba(0, 232, 255, 1 ), rgba(0, 255, 152, 1));
+    background: linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1));
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -23,7 +23,7 @@ body {
     padding-right: 5vw;
 }
 
-img{
+img {
     width: 400px;
     height: 400px;
 }
@@ -40,17 +40,17 @@ img{
     outline: none;
 }
 
-#welcome{
+#welcome {
     padding-top: 10vh;
 }
 
-#start{
+#start {
     display: flex;
     flex-direction: column;
     padding-bottom: 10vh;
 }
 
-#introduction{
+#introduction {
     display: flex;
     flex-direction: column;
     justify-content: center;
