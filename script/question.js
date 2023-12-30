@@ -1,19 +1,16 @@
-let questions = null;
 let current_question = null;
 let correct_answers = 0;
-
-questions = loadQuestions();
-setQuestion();
-
-function loadQuestions() {
-    const request = new XMLHttpRequest();
-    request.open("GET", "https://opentdb.com/api.php?amount=10&type=multiple", true);
-    request.send(null)
-    return JSON.parse(request.responseText)['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']));
-}
+let questions;
+fetch("https://opentdb.com/api.php?amount=10&type=multiple").then((response) =>
+    response.json().then((result) => {
+        questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']))
+        setQuestion()
+    })
+)
 
 
 function setQuestion() {
+    if (questions === null) return;
     const length = questions.length;
 
     if (length === 0) {
