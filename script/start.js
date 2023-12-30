@@ -1,7 +1,3 @@
-let done = false;
-let highlighted = null;
-let timeoutId;
-
 if (Modernizr.deviceorientation) {
     document.getElementById('start-button').addEventListener('click', onStart)
 

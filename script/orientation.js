@@ -2,6 +2,10 @@ let initAlpha = null;
 let initBeta = null;
 let initGamma = null;
 
+let done = false;
+let highlighted = null;
+let timeoutId;
+
 window.addEventListener('deviceorientation', handleOrientation)
 
 document.getElementById('reset-button').addEventListener('click', resetOrientation)
