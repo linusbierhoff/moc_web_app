@@ -11,16 +11,16 @@ if (typeof Modernizr !== 'undefined' && Modernizr.deviceorientation) {
     document.getElementById("start").innerHTML = `<h3>This app is not compatible with your device. Scan the QR Code to use the website on your mobile device.</h3>`
 }
 
-function onStart() {
-    let response = requestOrientationPermission()
+async function onStart() {
+    let response = await requestOrientationPermission()
     if (response) {
         window.location.href = "../quiz.html";
     }
 }
 
-function requestOrientationPermission() {
+async function requestOrientationPermission() {
     try {
-        let response = DeviceOrientationEvent.requestPermission();
+        let response = await DeviceOrientationEvent.requestPermission();
         return (response === 'granted');
     } catch (e) {
         console.error(e)
