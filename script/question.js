@@ -2,6 +2,8 @@ let questions = null;
 let current_question = null;
 let correct_answers = 0;
 
+questions = loadQuestions();
+setQuestion();
 
 function loadQuestions() {
     const request = new XMLHttpRequest();
@@ -52,3 +54,47 @@ function checkAnswer() {
         hideAllAnswers();
     }, 1000);
 }
+
+
+function highlightAnswer(className) {
+    if (highlighted !== className && !done) {
+        hideAllAnswers();
+        clearTimeout(timeoutId);
+        if (className === "") return;
+        const htmlElements = document.getElementsByClassName(className);
+        if (htmlElements.length !== 0) {
+            htmlElements[0].className = "answer " + className + " selected";
+            highlighted = className;
+            timeoutId = setTimeout(() => {
+                checkAnswer();
+            }, 1500)
+        } else console.log(className);
+    }
+}
+
+function hideAllAnswers() {
+    highlighted = null;
+    for (let index in classNames) {
+
+        let className = classNames[index];
+        let htmlElements = document.getElementsByClassName(className);
+
+        if (htmlElements.length !== 0) htmlElements[0].className = "answer " + className;
+        else console.log(className);
+
+    }
+}
+
+
+function activateFullscreenOverlay() {
+    overlay.className = "fullscreen-overlay"
+}
+
+function deactivateFullscreenOverlay() {
+    overlay.className = null;
+    overlay.style.color = `transparent`;
+    overlay.innerHTML = ``;
+}
+
+
+
