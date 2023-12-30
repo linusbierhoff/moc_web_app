@@ -3,19 +3,8 @@ let initBeta = null;
 let initGamma = null;
 
 window.addEventListener('deviceorientation', handleOrientation)
+
 document.getElementById('reset-button').addEventListener('click', resetOrientation)
-
-
-function requestOrientationPermission() {
-    try {
-        let response = DeviceOrientationEvent.requestPermission();
-        return (response === 'granted');
-    } catch (e) {
-        console.error(e)
-    }
-    return false;
-}
-
 
 function resetOrientation() {
     initAlpha = initBeta = initGamma = null;

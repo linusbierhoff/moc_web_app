@@ -18,3 +18,12 @@ function onStart() {
     }
 }
 
+function requestOrientationPermission() {
+    try {
+        let response = DeviceOrientationEvent.requestPermission();
+        return (response === 'granted');
+    } catch (e) {
+        console.error(e)
+    }
+    return false;
+}
