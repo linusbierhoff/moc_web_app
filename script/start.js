@@ -3,7 +3,7 @@ let highlighted = null;
 let timeoutId;
 
 
-if (Modernizr.hasOwnProperty()) {
+if (Modernizr.prototype) {
     document.getElementById('start-button').addEventListener('click', onStart)
 
 } else {
