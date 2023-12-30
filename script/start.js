@@ -2,6 +2,8 @@ let done = false;
 let highlighted = null;
 let timeoutId;
 
+console.log(Modernizr.devicemotiondeviceorientation);
+
 if (Modernizr.devicemotiondeviceorientation) {
     document.getElementById('start-button').addEventListener('click', onStart)
 
@@ -13,7 +15,7 @@ if (Modernizr.devicemotiondeviceorientation) {
 async function onStart() {
     let response = await requestOrientationPermission()
     if (response) {
-        window.location.href = "../quiz.html";
+        window.location.href = "quiz.html";
     }
 }
 
