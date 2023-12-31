@@ -1,3 +1,12 @@
+const angle = 30;
+const classNames = [
+    "top",
+    "left",
+    "right",
+    "bottom"
+]
+
+
 let initAlpha = null;
 let initBeta = null;
 let initGamma = null;

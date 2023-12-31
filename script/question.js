@@ -1,5 +1,9 @@
+const overlay = document.getElementById("overlay");
+const centered_circle = document.getElementById("centered-circle")
+const stopwatch_text = document.getElementById("stopwatch");
+
+
 let current_question = null;
-let correct_answers = 0;
 let questions;
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
@@ -17,6 +21,7 @@ fetch("https://opentdb.com/api.php?amount=10&type=multiple").then((response) =>
 
     })
 )
+
 
 function setQuestion() {
     const length = questions.length;

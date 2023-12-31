@@ -1,0 +1,18 @@
+body {
+    align-items: center;
+}
+
+img {
+    width: 50vw;
+    height: 50vw;
+}
+
+#result-text {
+    text-align: center;
+    margin-top: 10vh;
+}
+
+#restart-button{
+    margin-bottom: 10vh;
+}
+
