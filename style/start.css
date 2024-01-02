@@ -23,9 +23,15 @@ img {
 }
 
 #category-selector{
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+#category{
+    margin-top: 2vh;
+}
 
 #start {
     display: flex;

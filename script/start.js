@@ -5,6 +5,7 @@ if (Modernizr.deviceorientation) {
 
         category_menu.addEventListener("change", (event) => {
             category = category_menu.value;
+            console.log(category);
         })
         document.getElementById('start-button').addEventListener('click', onStart);
     });

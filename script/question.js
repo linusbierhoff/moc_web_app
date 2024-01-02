@@ -10,7 +10,7 @@ activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
 console.log(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`);
 fetch(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`).then((response) =>
     response.json().then((result) => {
-        questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], ['correct_answer']));
+        questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']));
         setQuestion();
         deactivateFullscreenOverlay();
 
@@ -32,7 +32,7 @@ function setQuestion() {
     if (length === 0) {
         done = true;
         stopWatch.stop();
-        window.location.href = "result.js";
+        window.location.href = "result.html";
         return;
     }
 
