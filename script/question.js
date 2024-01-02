@@ -7,7 +7,7 @@ let current_question;
 let correct_answers = 0;
 let stopWatch = new Stopwatch();
 
-let category = getState(CATEGORY);
+let category = getState(CATEGORY) ?? 9;
 
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
