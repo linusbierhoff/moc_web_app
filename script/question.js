@@ -8,7 +8,7 @@ let questions;
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
 
-fetch("https://opentdb.com/api.php?amount=10&type=multiple").then((response) =>
+fetch(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`).then((response) =>
     response.json().then((result) => {
         questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']))
         setQuestion();

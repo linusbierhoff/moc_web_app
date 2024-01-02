@@ -22,6 +22,10 @@ img {
     padding-right: 5vw;
 }
 
+#category-selector{
+    align-self: center;
+}
+
 
 #start {
     display: flex;
