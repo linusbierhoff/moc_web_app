@@ -7,20 +7,23 @@ let current_question = null;
 let questions;
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
-
+console.log(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`);
 fetch(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`).then((response) =>
     response.json().then((result) => {
-        questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], e['correct_answer']))
+        questions = result['results'].map((e) => new Question(decodeHtmlEntities(e['question']), decodeHtmlEntities(e['incorrect_answers']), decodeHtmlEntities(['correct_answer'])));
         setQuestion();
         deactivateFullscreenOverlay();
 
         stopWatch.start((seconds) => {
             stopwatch_text.innerText = seconds + " seconds";
         })
-
-
     })
 )
+
+function decodeHtmlEntities(text) {
+    let doc = new DOMParser().parseFromString(text, "text/html");
+    return doc.documentElement.textContent;
+}
 
 
 function setQuestion() {
@@ -29,7 +32,7 @@ function setQuestion() {
     if (length === 0) {
         done = true;
         stopWatch.stop();
-        activateFullscreenOverlay(`<h3>You have got ${correct_answers} right in ${stopWatch.seconds} seconds! </h3>`);
+        window.location.href = "result.js";
         return;
     }
 

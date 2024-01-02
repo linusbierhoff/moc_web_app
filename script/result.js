@@ -19,5 +19,5 @@ if (stopWatch.seconds < 60 && correct_answers >= 9) {
 }
 
 function restart() {
-    window.location.href = "quiz.html";
+    window.location.href = "index.html";
 }
