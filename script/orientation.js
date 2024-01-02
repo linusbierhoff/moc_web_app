@@ -11,7 +11,6 @@ let initAlpha = null;
 let initBeta = null;
 let initGamma = null;
 
-let done = false;
 let highlighted = null;
 let timeoutId = null;
 

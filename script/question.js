@@ -2,15 +2,16 @@ const overlay = document.getElementById("overlay");
 const centered_circle = document.getElementById("centered-circle")
 const stopwatch_text = document.getElementById("stopwatch");
 
+let questions: Question[];
+let current_question: Question;
+let correct_answers: number = 0;
+let stopWatch: Stopwatch = new Stopwatch();
 
-let current_question = null;
-let questions;
-let correct_answers;
-let stopWatch = new Stopwatch();
-let category = getState(CATEGORY);
+let category: number = getState(CATEGORY);
 
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
+
 console.log(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`);
 fetch(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`).then((response) =>
     response.json().then((result) => {
@@ -24,17 +25,10 @@ fetch(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`
     })
 )
 
-function decodeHtmlEntities(text) {
-    let doc = new DOMParser().parseFromString(text, "text/html");
-    return doc.documentElement.textContent;
-}
-
-
 function setQuestion() {
     const length = questions.length;
 
     if (length === 0) {
-        done = true;
         stopWatch.stop();
         saveState(SECONDS, stopWatch.seconds);
         saveState(CORRECT_ANSWERS, correct_answers);
@@ -115,3 +109,9 @@ function deactivateFullscreenOverlay() {
     overlay.style.color = `transparent`;
     overlay.innerHTML = ``;
 }
+
+function decodeHtmlEntities(text) {
+    let doc = new DOMParser().parseFromString(text, "text/html");
+    return doc.documentElement.textContent;
+}
+
