@@ -47,7 +47,7 @@ function setQuestion() {
 }
 
 function checkAnswer() {
-    if (done || highlighted === null) return;
+    if (highlighted === null) return;
     const selectedID = classNames.indexOf(highlighted);
     const right_answer = current_question.correct_answer;
 
@@ -69,7 +69,7 @@ function checkAnswer() {
 
 
 function highlightAnswer(className) {
-    if (highlighted !== className && !done) {
+    if (highlighted !== className) {
         hideAllAnswers();
         clearTimeout(timeoutId);
         if (className === "") return;
