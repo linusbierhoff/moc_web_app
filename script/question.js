@@ -5,6 +5,10 @@ const stopwatch_text = document.getElementById("stopwatch");
 
 let current_question = null;
 let questions;
+let correct_answers;
+let stopWatch = new Stopwatch();
+let category = getState(CATEGORY);
+
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
 console.log(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`);
@@ -32,6 +36,8 @@ function setQuestion() {
     if (length === 0) {
         done = true;
         stopWatch.stop();
+        saveState(SECONDS, stopWatch.seconds);
+        saveState(CORRECT_ANSWERS, correct_answers);
         window.location.href = "result.html";
         return;
     }
