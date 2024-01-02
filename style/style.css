@@ -43,6 +43,18 @@ body {
     outline: none;
 }
 
+.rounded-menu{
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    border-radius: 12px;
+    background-color: aliceblue;
+    border: none;
+    outline: none;
+}
+
 
 .single-row {
     display: flex;
