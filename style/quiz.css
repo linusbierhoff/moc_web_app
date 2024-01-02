@@ -1,5 +1,6 @@
-p, li, #question, .answer-selector-label {
+p, li, .answer, #question {
     align-self: center;
+    font-family: 'Arial', serif;
 }
 
 h3 {
