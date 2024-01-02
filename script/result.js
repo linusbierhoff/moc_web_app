@@ -22,5 +22,8 @@ if (seconds < 60 && correct_answers >= 9) {
 }
 
 function restart() {
+    saveState(CORRECT_ANSWERS, null)
+    saveState(CATEGORY, null)
+    saveState(SECONDS, null)
     window.location.href = "index.html";
 }
