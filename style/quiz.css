@@ -1,4 +1,4 @@
-p, li, .answer, #question {
+.answer, #question {
     align-self: center;
     font-family: 'Arial', serif;
 }
@@ -19,7 +19,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1vh 1vh;
+    padding: 20px;
 }
 
 
@@ -33,13 +33,13 @@ header {
     font-weight: bold;
     align-self: center;
     text-align: center;
-    margin: 2vh 5vw;
+    margin: 20px;
     color: black;
 }
 
 
 #options {
-    margin: 2vh 5vw;
+    margin: 20px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -47,91 +47,30 @@ header {
     flex-direction: column;
 }
 
-
-#answers {
-    margin: 5vh 5vw;
-}
-
-#labels {
+#fitting-box{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 90vw;
-    width: 70vw;
-    margin-left: 10vw;
 }
 
 
-#selectors {
+#selectors, #centered-indicator {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    width: 100vw;
-    height: 100vw;
+    margin: 0;
 }
 
 .answer {
     position: absolute;
-    width: 5vw;
-    height: 5vw;
-}
-
-
-.answer.top {
-    margin-left: 2.5vw;
-    border-top: 40vw solid rgba(256, 256, 256, 0.4);
-    border-right: 40vw solid transparent;
-    border-bottom: 40vw solid transparent;
-    border-left: 40vw solid transparent;
-}
-
-.answer.top.selected {
-    border-top: 40vw solid rgba(256, 256, 256, 1);
-}
-
-.answer.right {
-    margin-left: 5vw;
-    margin-top: 2.5vw;
-    border-top: 40vw solid transparent;
-    border-right: 40vw solid rgba(256, 256, 256, 0.4);
-    border-bottom: 40vw solid transparent;
-    border-left: 40vw solid transparent;
-}
-
-.answer.right.selected {
-    border-right: 40vw solid rgba(256, 256, 256, 1);
-}
-
-.answer.bottom {
-    margin-left: 2.5vw;
-    margin-top: 5vw;
-    border-top: 40vw solid transparent;
-    border-right: 40vw solid transparent;
-    border-bottom: 40vw solid rgba(256, 256, 256, 0.4);
-    border-left: 40vw solid transparent;
-}
-
-.answer.bottom.selected {
-    border-bottom: 40vw solid rgba(256, 256, 256, 1);
-}
-
-.answer.left {
-    margin-top: 2.5vw;
-    border-top: 40vw solid transparent;
-    border-right: 40vw solid transparent;
-    border-bottom: 40vw solid transparent;
-    border-left: 40vw solid rgba(256, 256, 256, 0.4);
-}
-
-
-.answer.left.selected {
-    border-left: 40vw solid rgba(256, 256, 256, 1);
+    width: 5%;
+    height: 5%;
 }
 
 
 #centered-indicator {
-    position: absolute;
-    width: 90vw;
-    height: 90vw;
     background: transparent;
     display: flex;
     flex-direction: column;
@@ -142,6 +81,168 @@ header {
 #centered-circle {
     background: rgba(256, 256, 256, 0.4);
     border-radius: 20px;
-    height: 5vw;
-    width: 5vw;
+    height: 5%;
+    width: 5%;
+}
+
+#labels {
+    height: 100%;
+    width: 80%;
+    padding-left: 10%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+@media (orientation: portrait) {
+
+    /* Width < height -> width as reference*/
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    #answers {
+        position: relative;
+        box-sizing: border-box;
+        padding: 20px 20px;
+        width: 100vw;
+        height: 100vw;
+    }
+
+    .answer.top {
+        margin-left: 2.5vw;
+        border-top: 40vw solid rgba(256, 256, 256, 0.4);
+        border-right: 40vw solid transparent;
+        border-bottom: 40vw solid transparent;
+        border-left: 40vw solid transparent;
+    }
+
+    .answer.top.selected {
+        border-top: 40vw solid rgba(256, 256, 256, 1);
+    }
+
+    .answer.right {
+        margin-left: 5vw;
+        margin-top: 2.5vw;
+        border-top: 40vw solid transparent;
+        border-right: 40vw solid rgba(256, 256, 256, 0.4);
+        border-bottom: 40vw solid transparent;
+        border-left: 40vw solid transparent;
+    }
+
+    .answer.right.selected {
+        border-right: 40vw solid rgba(256, 256, 256, 1);
+    }
+
+    .answer.bottom {
+        margin-left: 2.5vw;
+        margin-top: 5vw;
+        border-top: 40vw solid transparent;
+        border-right: 40vw solid transparent;
+        border-bottom: 40vw solid rgba(256, 256, 256, 0.4);
+        border-left: 40vw solid transparent;
+    }
+
+    .answer.bottom.selected {
+        border-bottom: 40vw solid rgba(256, 256, 256, 1);
+    }
+
+    .answer.left {
+        margin-top: 2.5vw;
+        border-top: 40vw solid transparent;
+        border-right: 40vw solid transparent;
+        border-bottom: 40vw solid transparent;
+        border-left: 40vw solid rgba(256, 256, 256, 0.4);
+    }
+
+
+    .answer.left.selected {
+        border-left: 40vw solid rgba(256, 256, 256, 1);
+    }
+
+}
+
+@media (orientation: landscape) {
+
+
+    /* Width > height -> height as reference*/
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+    }
+
+    #first_section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #answers {
+        position: relative;
+        box-sizing: border-box;
+        padding: 20px 20px;
+        min-width: 100vh;
+        width: 100vh;
+        height: 100vh;
+    }
+
+
+    .answer.top {
+        margin-left: 2.5vh;
+        border-top: 40vh solid rgba(256, 256, 256, 0.4);
+        border-right: 40vh solid transparent;
+        border-bottom: 40vh solid transparent;
+        border-left: 40vh solid transparent;
+    }
+
+    .answer.top.selected {
+        border-top: 40vh solid rgba(256, 256, 256, 1);
+    }
+
+    .answer.right {
+        margin-left: 5vh;
+        margin-top: 2.5vh;
+        border-top: 40vh solid transparent;
+        border-right: 40vh solid rgba(256, 256, 256, 0.4);
+        border-bottom: 40vh solid transparent;
+        border-left: 40vh solid transparent;
+    }
+
+    .answer.right.selected {
+        border-right: 40vh solid rgba(256, 256, 256, 1);
+    }
+
+    .answer.bottom {
+        margin-left: 2.5vh;
+        margin-top: 5vh;
+        border-top: 40vh solid transparent;
+        border-right: 40vh solid transparent;
+        border-bottom: 40vh solid rgba(256, 256, 256, 0.4);
+        border-left: 40vh solid transparent;
+    }
+
+    .answer.bottom.selected {
+        border-bottom: 40vh solid rgba(256, 256, 256, 1);
+    }
+
+    .answer.left {
+        margin-top: 2.5vh;
+        border-top: 40vh solid transparent;
+        border-right: 40vh solid transparent;
+        border-bottom: 40vh solid transparent;
+        border-left: 40vh solid rgba(256, 256, 256, 0.4);
+    }
+
+
+    .answer.left.selected {
+        border-left: 40vh solid rgba(256, 256, 256, 1);
+    }
+
 }

@@ -1,4 +1,3 @@
-const overlay = document.getElementById("overlay");
 const centered_circle = document.getElementById("centered-circle")
 const stopwatch_text = document.getElementById("stopwatch");
 
@@ -99,15 +98,17 @@ function hideAllAnswers() {
 
 
 function activateFullscreenOverlay(innerHTML) {
-    overlay.className = "fullscreen-overlay"
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    overlay.className = "fullscreen-overlay";
     overlay.style.background = `linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1))`;
-    overlay.innerHTML = innerHTML
+    overlay.innerHTML = innerHTML;
+    document.getElementsByTagName("body")[0].appendChild(overlay);
 }
 
 function deactivateFullscreenOverlay() {
-    overlay.className = null;
-    overlay.style.color = `transparent`;
-    overlay.innerHTML = ``;
+    const overlay = document.getElementById("overlay");
+    overlay.remove();
 }
 
 function decodeHtmlEntities(text) {

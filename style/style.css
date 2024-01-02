@@ -1,10 +1,12 @@
-h1, h2, h3, h4, h5, h6, ul, ol, li, p, button, label {
+h1, h2, h3, h4, h5, h6, ul, ol, li, p, button, label, a {
     font-family: 'Arial', serif;
-}
-
-h1, h2, h3 {
     align-self: center;
     text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 body {
@@ -21,16 +23,32 @@ body {
     margin: 0;
 }
 
+
 .rounded-button {
     padding: 10px 20px;
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     text-decoration: none;
     color: #000;
-    border-radius: 20px;
+    border-radius: 12px;
     background-color: aliceblue;
     border: none;
     outline: none;
+    margin: 0;
+}
+
+
+.rounded-menu {
+    padding: 10px 20px;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    border-radius: 12px;
+    background-color: aliceblue;
+    border: none;
+    outline: none;
+    margin: 0;
 }
 
 .text-button {
@@ -41,18 +59,8 @@ body {
     background-color: transparent;
     border: none;
     outline: none;
-}
-
-.rounded-menu{
-    padding: 10px;
-    font-size: 1em;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-    border-radius: 12px;
-    background-color: aliceblue;
-    border: none;
-    outline: none;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -70,4 +78,12 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 20px;
+    padding: 0 20px;
 }

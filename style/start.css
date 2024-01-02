@@ -1,16 +1,18 @@
+#main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
 h1 {
     margin-top: 10vh;
 }
 
-
-img {
-    width: 400px;
-    height: 400px;
-}
-
-#welcome {
-    padding-top: 10vh;
-
+h3 {
+    padding: 0 20px;
 }
 
 #introduction {
@@ -18,25 +20,70 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 5vw;
-    padding-right: 5vw;
 }
 
-#category-selector{
+#start {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#category{
-    margin-top: 2vh;
-}
-
-#start {
+#inputs {
     display: flex;
     flex-direction: column;
-    padding-bottom: 10vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#category {
+    margin: 20px;
+}
+
+#start-button {
+    margin: 20px;
+}
+
+
+@media (orientation: portrait) {
+    #main {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #introduction {
+
+    }
+
+    #start {
+        padding-bottom: 5vh;
+    }
+
+    img {
+        width: 80vw;
+        height: 80vw;
+    }
+}
+
+
+@media (orientation: landscape) {
+    #main {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #introduction {
+    }
+
+    #start {
+    }
+
+    img {
+        width: 80vh;
+        height: 80vh;
+    }
 }

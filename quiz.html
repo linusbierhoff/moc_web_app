@@ -8,41 +8,47 @@
     <meta content="yes" name="apple-mobile-web-app-capable">
     <title>Tilt Quiz</title>
 </head>
-<body id="display">
-<header>
-    <p id="stopwatch">0 seconds</p>
-    <button class="text-button" id="reset-button">Reset Orientation</button>
-</header>
+<body>
+<div id="first_section">
+    <header>
+        <p id="stopwatch">0 seconds</p>
+        <button class="text-button" id="reset-button">Reset Orientation</button>
+    </header>
+    <div id="question"></div>
 
-<div id="question"></div>
-<ol id="options">
-    <li class="option" id="0"></li>
-    <li class="option" id="1"></li>
-    <li class="option" id="2"></li>
-    <li class="option" id="3"></li>
-</ol>
-
+    <ol id="options">
+        <li class="option" id="0"></li>
+        <li class="option" id="1"></li>
+        <li class="option" id="2"></li>
+        <li class="option" id="3"></li>
+    </ol>
+</div>
 
 <div id="answers">
-    <div id="selectors">
-        <div class="answer top"></div>
-        <div class="answer left"></div>
-        <div class="answer right"></div>
-        <div class="answer bottom"></div>
-    </div>
-    <div id="centered-indicator">
-        <div id="centered-circle"></div>
-    </div>
-    <div id="labels">
-        <h3>1</h3>
-        <div class="single-row">
-            <h3>2</h3>
-            <h3>3</h3>
+    <div id="fitting-box">
+        <div id="selectors">
+            <div class="answer top"></div>
+            <div class="answer left"></div>
+            <div class="answer right"></div>
+            <div class="answer bottom"></div>
         </div>
-        <h3>4</h3>
+
+        <div id="centered-indicator">
+            <div id="centered-circle"></div>
+        </div>
+
+        <div id="labels">
+            <h3>1</h3>
+            <div class="single-row">
+                <h3>2</h3>
+                <h3>3</h3>
+            </div>
+            <h3>4</h3>
+        </div>
     </div>
 </div>
-<div id="overlay"></div>
+
+</div>
 <script src="script/models/stopwatch.js"></script>
 <script src="script/global.js"></script>
 <script src="script/models/question.js"></script>

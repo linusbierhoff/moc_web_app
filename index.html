@@ -10,19 +10,27 @@
 <body>
 <h1>Welcome to Tilt Quiz</h1>
 
-<div id="introduction">
-    <h3>Tilt your phone to select the right answer.</h3>
-    <h3>Hold your phone to confirm the selection.</h3>
-    <h3>The dot in the middle indicates that your phone is centered.</h3>
+<div id="main">
+    <div id="introduction">
+        <h3>Tilt your phone to select the right answer.</h3>
+        <h3>Hold your phone to confirm the selection.</h3>
+        <h3>The dot in the middle indicates that your phone is centered.</h3>
+    </div>
+
+    <div id="start">
+        <p>Choose a category and press start to begin!</p>
+        <div id="inputs">
+            <select name="category" id="category" class="rounded-menu"></select>
+            <button class="rounded-button" id="start-button">Start</button>
+        </div>
+    </div>
 </div>
-<div id="category-selector">
-    <label for="category">Choose a category:</label>
-    <select name="category" id="category" class="rounded-menu"></select>
-</div>
-<div id="start">
-    <h2>Press start to begin!</h2>
-    <button class="rounded-button" id="start-button">Start</button>
-</div>
+
+<footer>
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+</footer>
+
 <script src="script/global.js"></script>
 <script src="lib/modernizr-custom.js"></script>
 <script src="script/models/category.js"></script>
