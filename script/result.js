@@ -1,7 +1,7 @@
 const medal_html = document.getElementById("medal");
 const text_html = document.getElementById("result-text")
 
-document.getElementById("reset-button").addEventListener("click", restart);
+document.getElementById("restart-button").addEventListener("click", restart);
 
 text_html.innerText = `You answered ${correct_answers} questions right in ${stopWatch.seconds} seconds`;
 
