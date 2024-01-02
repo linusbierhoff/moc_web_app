@@ -36,11 +36,19 @@ function handleOrientation(event) {
 }
 
 function updatePhoneSide(alpha, beta, gamma) {
+    if (screen.availHeight > screen.availWidth) {
+        const tempBeta = beta;
+        beta = gamma;
+        gamma = tempBeta;
+    }
+
     const absBeta = Math.abs(beta);
     const absGamma = Math.abs(gamma);
 
+
     if (absBeta > absGamma && absBeta > angle) {
         if (beta < -angle) highlightAnswer("top");
+
         if (beta > angle) highlightAnswer("bottom");
 
     } else if (absGamma > absBeta && absGamma > angle) {
