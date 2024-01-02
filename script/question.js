@@ -2,12 +2,12 @@ const overlay = document.getElementById("overlay");
 const centered_circle = document.getElementById("centered-circle")
 const stopwatch_text = document.getElementById("stopwatch");
 
-let questions: Question[];
-let current_question: Question;
-let correct_answers: number = 0;
-let stopWatch: Stopwatch = new Stopwatch();
+let questions;
+let current_question;
+let correct_answers = 0;
+let stopWatch = new Stopwatch();
 
-let category: number = getState(CATEGORY);
+let category = getState(CATEGORY);
 
 
 activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
