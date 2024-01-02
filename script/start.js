@@ -2,7 +2,10 @@ let category_menu = document.getElementById("category");
 
 if (Modernizr.deviceorientation) {
     loadCategories().then(r => {
-        category_menu.addEventListener("change", () => category = category_menu.value)
+
+        category_menu.addEventListener("change", (event) => {
+            category = category_menu.value;
+        })
         document.getElementById('start-button').addEventListener('click', onStart);
     });
 } else {
@@ -20,7 +23,7 @@ async function loadCategories() {
 function setDropdown(categories) {
     for (let i in categories) {
         let option = document.createElement('option');
-        option.value = categories[i].id;
+        option.value = categories[i].category_id;
         option.text = categories[i].name;
         category_menu.add(option);
     }

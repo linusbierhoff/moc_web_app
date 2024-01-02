@@ -10,7 +10,7 @@ activateFullscreenOverlay(`<h3>Loading questions...</h3>`)
 console.log(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`);
 fetch(`https://opentdb.com/api.php?amount=10&type=multiple&category=${category}`).then((response) =>
     response.json().then((result) => {
-        questions = result['results'].map((e) => new Question(decodeHtmlEntities(e['question']), decodeHtmlEntities(e['incorrect_answers']), decodeHtmlEntities(['correct_answer'])));
+        questions = result['results'].map((e) => new Question(e['question'], e['incorrect_answers'], ['correct_answer']));
         setQuestion();
         deactivateFullscreenOverlay();
 
@@ -39,9 +39,9 @@ function setQuestion() {
     const index = Math.floor(Math.random() * length);
     current_question = questions[index];
 
-    document.getElementById("question").innerText = current_question.question;
+    document.getElementById("question").innerText = decodeHtmlEntities(current_question.question);
     for (let i = 0; i < 4; i++) {
-        document.getElementById(i.toString()).innerText = current_question.answers[i];
+        document.getElementById(i.toString()).innerText = decodeHtmlEntities(current_question.answers[i]);
     }
     questions.splice(index, 1);
 }
