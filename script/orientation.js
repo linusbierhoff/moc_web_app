@@ -36,7 +36,7 @@ function handleOrientation(event) {
 }
 
 function updatePhoneSide(alpha, beta, gamma) {
-    if (screen.availHeight > screen.availWidth) {
+    if (screen.availHeight < screen.availWidth) {
         const tempBeta = beta;
         beta = gamma;
         gamma = tempBeta;
