@@ -3,12 +3,15 @@ const text_html = document.getElementById("result-text")
 
 document.getElementById("restart-button").addEventListener("click", restart);
 
-text_html.innerText = `You answered ${correct_answers} questions right in ${stopWatch.seconds} seconds`;
+let correct_answers = getState(CORRECT_ANSWERS);
+let seconds = getState(SECONDS);
 
-if (stopWatch.seconds < 60 && correct_answers >= 9) {
+text_html.innerText = `You answered ${correct_answers} questions right in ${seconds} seconds`;
+
+if (seconds < 60 && correct_answers >= 9) {
     //Gold medal
     medal_html.innerHTML = `<img src="assets/gold.svg" alt="Gold medal">`
-} else if (stopWatch.seconds < 120 && correct_answers >= 7) {
+} else if (seconds < 120 && correct_answers >= 7) {
     //Silver medal
     medal_html.innerHTML = `<img src="assets/silver.svg" alt="Silver medal">`
 
