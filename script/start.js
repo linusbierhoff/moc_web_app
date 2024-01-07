@@ -2,7 +2,7 @@
 let category_menu = document.getElementById("category");
 
 // Check if the device supports the deviceorientation feature using Modernizr
-if (Modernizr.deviceorientation) {
+if (Modernizr.prototype) {
     // If supported, load categories and activate buttons
     loadCategories().then(r => {
         category_menu.addEventListener("change", (event) => {
