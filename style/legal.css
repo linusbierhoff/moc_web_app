@@ -1,4 +1,5 @@
 body{
+    /* reactive scrolling*/
     overflow-y: scroll;
     height: auto;
     min-height: 100vh;

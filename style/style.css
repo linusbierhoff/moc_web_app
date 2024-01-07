@@ -10,7 +10,7 @@ a{
 }
 
 body {
-    background: linear-gradient(rgba(0, 232, 255, 1), rgba(0, 255, 152, 1));
+    background: linear-gradient(rgb(107, 204, 218), rgba(0, 255, 152, 1));
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -23,7 +23,7 @@ body {
     margin: 0;
 }
 
-
+/*Designing repeating elements*/
 .rounded-button {
     padding: 10px 20px;
     font-size: 1em;

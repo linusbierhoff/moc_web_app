@@ -16,6 +16,7 @@ img {
     margin-bottom: 10vh;
 }
 
+/*Direct the content as column if portrait mode and in a grid if landscape mode to order the elements in a row*/
 
 @media (orientation: portrait) {
     img {

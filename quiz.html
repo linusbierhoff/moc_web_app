@@ -9,6 +9,7 @@
     <title>Tilt Quiz</title>
 </head>
 <body>
+<!--firs section to separate everything from the selector. Necessary for switching orientation-->
 <div id="first_section">
     <header>
         <p id="stopwatch">0 seconds</p>
@@ -24,8 +25,12 @@
     </ol>
 </div>
 
+<!--Selector which contains 3 elements which are stacked-->
+
 <div id="answers">
+    <!--Necessary to set the size based on answers INCLUDING the padding-->
     <div id="fitting-box">
+        <!--4 Boxes with borders to represent each triangle (triangle is one side of the border)-->
         <div id="selectors">
             <div class="answer top"></div>
             <div class="answer left"></div>
@@ -33,10 +38,12 @@
             <div class="answer bottom"></div>
         </div>
 
+        <!--Box which has a dot in the center to indicate centered orientation-->
         <div id="centered-indicator">
             <div id="centered-circle"></div>
         </div>
 
+        <!--Labels to number the triangles -->
         <div id="labels">
             <h3>1</h3>
             <div class="single-row">

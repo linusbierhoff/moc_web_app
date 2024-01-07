@@ -46,16 +46,13 @@ h3 {
     margin: 20px;
 }
 
+/*Direct the content as column if portrait mode and in a row if landscape mode*/
 
 @media (orientation: portrait) {
     #main {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-    }
-
-    #introduction {
-
     }
 
     #start {
@@ -74,12 +71,6 @@ h3 {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-    }
-
-    #introduction {
-    }
-
-    #start {
     }
 
     img {

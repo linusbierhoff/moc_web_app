@@ -47,13 +47,12 @@ header {
     flex-direction: column;
 }
 
-#fitting-box{
+#fitting-box {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     position: relative;
 }
-
 
 #selectors, #centered-indicator {
     box-sizing: border-box;
@@ -68,7 +67,6 @@ header {
     width: 5%;
     height: 5%;
 }
-
 
 #centered-indicator {
     background: transparent;
@@ -95,6 +93,7 @@ header {
     justify-content: space-between;
 }
 
+/*Check which display side is bigger to size the selector based in the smaller size -> fitting the display */
 
 @media (orientation: portrait) {
 
@@ -178,7 +177,7 @@ header {
         align-items: start;
     }
 
-    #first_section{
+    #first_section {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
