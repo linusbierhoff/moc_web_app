@@ -2,7 +2,9 @@
 let category_menu = document.getElementById("category");
 
 // Check if the device supports the deviceorientation feature using Modernizr
-if (Modernizr.prototype) {
+
+
+if (Modernizr.deviceorientation) {
     // If supported, load categories and activate buttons
     loadCategories().then(r => {
         category_menu.addEventListener("change", (event) => {
@@ -12,8 +14,7 @@ if (Modernizr.prototype) {
     });
 } else {
     // If deviceorientation is not supported, display a message and QR code for mobile users
-    document.getElementById("introduction").innerHTML = `<img src="assets/qr-code.png" alt="quiz.linusbierhoff.com">`
-    document.getElementById("start").innerHTML = `<h3>This app is not compatible with your device. Scan the QR Code to use the website on your mobile device.</h3>`
+    setNotSupported();
 }
 
 // Function to asynchronously load trivia categories from the Open Trivia Database API
@@ -22,6 +23,11 @@ async function loadCategories() {
     let json = await response.json();
     let categories = json['trivia_categories'].map((e) => new Category(e['name'], e['id']));
     setDropdown(categories);
+}
+
+function setNotSupported() {
+    document.getElementById("introduction").innerHTML = `<img src="assets/qr-code.png" alt="quiz.linusbierhoff.com">`
+    document.getElementById("start").innerHTML = `<h3>This app is not compatible with your device. Scan the QR Code to use the website on your mobile device.</h3>`
 }
 
 // Function to populate the category dropdown menu with options
@@ -49,6 +55,7 @@ async function requestOrientationPermission() {
         // Return true if permission is granted, false otherwise
         return (response === 'granted');
     } catch (e) {
+        setNotSupported()
         console.error(e)
     }
     return false;
