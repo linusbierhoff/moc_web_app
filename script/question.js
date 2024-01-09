@@ -126,6 +126,7 @@ function deactivateFullscreenOverlay() {
     const overlay = document.getElementById("overlay");
     overlay.remove();
 }
+
 // Function to decode HTML entities in a text (API provides text with HTML characters like $quot;)
 function decodeHtmlEntities(text) {
     let doc = new DOMParser().parseFromString(text, "text/html");

@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, h6, ul, ol, li, p, button, label, a {
     text-align: center;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -80,7 +80,7 @@ body {
     align-content: center;
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: row;
     justify-content: end;

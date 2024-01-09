@@ -1,4 +1,4 @@
-body{
+body {
     /* reactive scrolling*/
     overflow-y: scroll;
     height: auto;
@@ -9,7 +9,7 @@ body{
     margin: 0 20px;
 }
 
-h2, h3, h4, p{
+h2, h3, h4, p {
     text-align: start;
     align-self: start;
 }
