@@ -4,7 +4,7 @@ let category_menu = document.getElementById("category");
 // Check if the device supports the deviceorientation feature using Modernizr
 
 
-if (Modernizr.deviceorientation) {
+if (Modernizr.deviceorientation && WURFL.is_mobile) {
     // If supported, load categories and activate buttons
     loadCategories().then(r => {
         category_menu.addEventListener("change", (event) => {
@@ -50,13 +50,16 @@ async function onStart() {
 
 // Function to request permission for device orientation
 async function requestOrientationPermission() {
+    // happens on android
+    if (DeviceOrientationEvent.requestPermission !== 'function') return;
+
     try {
         let response = await DeviceOrientationEvent.requestPermission();
         // Return true if permission is granted, false otherwise
         return (response === 'granted');
     } catch (e) {
-        setNotSupported()
         console.error(e)
     }
+
     return false;
 }
