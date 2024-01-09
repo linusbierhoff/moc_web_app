@@ -1,9 +1,7 @@
 // Get a reference to the category dropdown menu in the HTML
 let category_menu = document.getElementById("category");
 
-// Check if the device supports the deviceorientation feature using Modernizr
-
-
+// Check if the browser supports the deviceorientation feature using Modernizr and if the client is mobile -> should habe sensors
 if (Modernizr.deviceorientation && WURFL.is_mobile) {
     // If supported, load categories and activate buttons
     loadCategories().then(r => {
@@ -50,8 +48,8 @@ async function onStart() {
 
 // Function to request permission for device orientation
 async function requestOrientationPermission() {
-    // happens on android
-    if (DeviceOrientationEvent.requestPermission !== 'function') return;
+    // on android
+    if (DeviceOrientationEvent.requestPermission !== 'function') return true;
 
     try {
         let response = await DeviceOrientationEvent.requestPermission();
