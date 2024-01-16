@@ -49,7 +49,7 @@ async function onStart() {
 // Function to request permission for device orientation
 async function requestOrientationPermission() {
     // on android
-    if (DeviceOrientationEvent.requestPermission !== 'function') return true;
+    if (typeof DeviceOrientationEvent.requestPermission !== 'function') return true;
 
     try {
         let response = await DeviceOrientationEvent.requestPermission();
